@@ -1,3 +1,5 @@
+
+
 h1, h2, h3, h4, h5, h6, ul {
     padding: 0;
     margin: 0;
@@ -28,6 +30,10 @@ button, input {
     min-height: 100%;
     overflow: hidden;
     position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    max-width: 1200px;
+    margin: 0 auto;
+    @include xl(max-width, 1110px);
 }
 
 .container {
