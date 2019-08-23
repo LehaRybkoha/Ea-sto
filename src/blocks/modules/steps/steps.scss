@@ -1,0 +1,28 @@
+.steps {
+	@include align-center;
+	background-image: url('/img/steps-bg.png');
+	&-content {
+		margin: rem(36px) 0 rem(36px);
+		&__item {
+			@include align-center;
+			flex-direction: row;
+			@include lg(flex-direction, column);
+			&-text {
+				font-family: $font-family-mont;
+				font-weight: 300;
+				font-size: rem(16px);
+				line-height: 142%;
+				margin: 0;
+				padding-left: rem(30px);
+				@include lg(text-align, center); 
+			}
+			&-pic {
+				width: auto;
+				height: rem(48px);
+			}
+			&--second {
+				@include lg(margin, rem(50px) 0 rem(50px));
+			}
+		}
+	}
+}
