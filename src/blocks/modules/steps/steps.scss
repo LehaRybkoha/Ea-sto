@@ -15,6 +15,7 @@
 				margin: 0;
 				padding-left: rem(30px);
 				@include lg(text-align, center); 
+				@include lg(padding, rem(10px) 0 0 0); 
 			}
 			&-pic {
 				width: auto;

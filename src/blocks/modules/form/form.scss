@@ -19,7 +19,7 @@
 	}
 	&-content {
 		padding: 0 rem(24px) rem(48px);
-		&__first-step {
+		&__first-step, &__second-step, &__third-step, &__fourth-step {
 			&--text {
 				display: block;
 				font-family: $font-family-mont;
@@ -38,8 +38,38 @@
 		}
 		&__field {
 			@include align-center;
+			@include sm(align-items, flex-start);
+			@include sm(flex-direction, column);
 			justify-content: space-between;
 			margin-bottom: rem(10px);
+			&-select {
+				max-width: 30%;
+				&:nth-child(2) {
+					margin: 0 rem(5px);
+				}
+			}
+			&-checkbox {
+				display: flex;
+				justify-content: center;
+				margin-left: 10%;
+				@include sm(justify-content, flex-start);
+				@include sm(margin-left, 0);
+			}
+			&-wrap {
+				@include sm(width, 100%);
+				width: 55%;
+				flex-direction: column;
+				display: flex;
+				&--date {
+					display: flex;
+					flex-direction: row;
+				}
+				&--gov {
+					width: 55%;
+					display: flex;
+					flex-direction: row;
+				}
+			}
 			&-input {
 				font-family: #font-family-mont;
 				background-color: #f0f3f5;
@@ -50,9 +80,23 @@
 				color: #73818c;
 				transition: all .3s ease;
 				height: rem(44px);
-				width: 55%;
+				width: 100%;
 				&--city {
 					cursor: pointer;
+				}
+				&--docNum {
+					max-width: 30%;
+					margin-bottom: rem(10px);
+				}
+				&--docNumSec {
+					max-width: 60%;
+				}
+				&--govNum {
+					max-width: 70%;
+					margin-right: rem(5px);
+				}
+				&--region {
+					max-width: 30%;
 				}
 			}
 			&-text {
@@ -61,14 +105,20 @@
 				line-height: rem(24px);
 				font-weight: 400;
 				color: #6c747b;
+				@include sm(padding-bottom, rem(10px));
 			}
 			&-contact {
 				margin: rem(25px) 0 rem(10px) 0;
 			}
+			&-fuel {
+				margin-top: rem(25px);
+			}
 		}
-		&__terms {
-			display: flex;
-			justify-content: space-around;
+		&__terms, &__use {
+			@include align-center;
+			@include sm(justify-content, flex-start);
+			@include sm(align-items, flex-start);
+			@include sm(flex-direction, column);
 			margin: rem(24px) 0;
 			&--checkbox {
 				opacity: 0;
@@ -112,8 +162,23 @@
 		}
 	}
 }
+
+.form-content__terms {
+	justify-content: space-around;
+}
+
+.form-content__use {
+	justify-content: space-between;
+}
+
+.form-content__second-step, .form-content__third-step, .form-content__fourth-step, .request {
+	display: none;
+}
 /*Прячем галку по умолчанию*/
 .form-content__terms input[type="checkbox"] + label::after {
+    content: none;
+}
+.use__item input[type="checkbox"] + label::after {
     content: none;
 }
 /*Показываем галку по состоянию checked*/
@@ -121,7 +186,15 @@
     content: "\E876";
     background-color: #ffc107;
     border-radius: 4px;
-    .form-content__terms--text {
+    .form-content__terms--text, .form-content__use--text {
+    	border: 2px solid #ffc107;
+    }
+}
+.use__item input[type="checkbox"]:checked + label::after {
+    content: "\E876";
+    background-color: #ffc107;
+    border-radius: 4px;
+    .form-content__use--text {
     	border: 2px solid #ffc107;
     }
 }
@@ -131,6 +204,20 @@
 	font-size: rem(10px);
 	line-height: rem(14px);
 	margin-bottom: rem(10px);
+}
+
+.warning-block {
+	display: flex;
+	justify-content: flex-end;
+	&--text {
+		color: #3f4145;
+		font-size: rem(10px);
+		line-height: rem(12px);
+		max-width: rem(495px);
+		margin: rem(5px) 0 rem(10px) 0;
+		font-weight: bold;
+		@include sm(max-width, rem(225px));
+	}
 }
 
 .public-offer {
@@ -150,4 +237,127 @@
 	background-color: $main-color;
 	border-radius: 6px;
 	padding: rem(12px) rem(40px);
+	&--third {
+		margin-top: rem(75px);
+	}
+}
+
+input, select {
+	max-width: 290px;
+}
+
+.check_first-step, .check_second-step, .check_third-step {
+	position: relative;
+	&:hover {
+		.edit-button, .edit-button--second, .edit-button--third {
+			border: 1px solid #6c747b;
+			padding: rem(10px) rem(20px);
+			border-radius: 6px;
+			background-color: #fff;
+			position: absolute;
+			top: 0;
+			right: 0;
+			cursor: pointer;
+			opacity: 1;
+		}
+	}
+}
+
+.check-data__item {
+	display: flex;
+	margin-bottom: rem(10px);
+	@include sm(flex-direction, column);
+}
+
+.check__title {
+	font-size: rem(14px);
+	line-height: rem(24px);
+	font-weight: 700;
+	color: #3f4145;
+}
+
+.check-data__item-title {
+	font-family: $font-family-mont;
+	font-size: rem(14px);
+	color: #6c747b;
+	min-width: rem(215px);
+	padding-right: rem(20px);
+}
+
+.edit-button, .edit-button--second, .edit-button--third {
+	border: 1px solid #6c747b;
+	padding: rem(10px) rem(20px);
+	border-radius: 6px;
+	background-color: #fff;
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	opacity: 0;
+}
+
+.request {
+	&-head {
+	    border-top: 6px solid #459ac2;
+    	border-radius: 6px 6px 0 0;
+    	margin-bottom: rem(25px);
+	}
+	&-content {
+		max-width: rem(526px);
+		margin: 0 auto;
+		&__title {
+			text-align: center;
+			&-text { 
+				font-size: rem(18px);
+				font-weight: bold;
+				color: #000;
+			}
+			&-desc {
+				font-size: rem(16px);
+				color: #000;
+				margin: rem(25px) 0;
+				max-width: rem(460px);
+				margin: rem(25px) auto;
+			}
+			&-warning {
+				font-size: rem(14px);
+				color: #73818c;
+			}
+		}
+	}
+	&-payment {
+		margin-top: rem(52px);
+		&_info {
+			padding: rem(24px) 0;
+			@include sm(max-width, rem(240px));
+			@include sm(margin, 0 auto);
+			&-text {
+				font-size: rem(12px);
+				color: #73818c;
+			}
+		}
+		&_block {
+			justify-content: space-around;
+			@include align-center;
+			@include sm(flex-direction, column);
+			&-button {
+				font-size: rem(16px);
+				background-color: #fee254;
+				color: #000;
+				padding: rem(10px) rem(80px);
+				border-radius: 6px;
+			}
+			&-text {
+				font-size: rem(15px);
+				color: #73818c;
+				margin: 0;
+				@include sm(margin-bottom, rem(20px));
+				&--css {
+					padding-left: rem(10px);
+					color: $main-color;
+					font-weight: bold;
+				}	
+			}
+		}
+	}
 }
