@@ -13,10 +13,6 @@
 			color: #fff;
 			text-align: center;
 		}
-		&__button-link {
-			font-family: $font-family-open;
-			color: #fff;
-		}
 		&__title-text {
 			font-weight: bold;
 			font-size: rem(42px);
@@ -38,6 +34,8 @@
 				border-radius: 7px;
 				text-transform: uppercase;
 				transition: all 0.3s ease;
+				font-family: $font-family-open;
+				color: #fff;
 				@include md(font-size, rem(15px));  
 				&:hover {
 					color: #fff;
@@ -47,4 +45,13 @@
 			}
 		}
 	}
+}
+
+.selected {
+	font-family: $font-family-mont;
+	color: #fff;
+	text-align: center;
+	font-weight: 500;
+	font-size: rem(30px);
+	@include md(font-size, rem(20px)); 
 }

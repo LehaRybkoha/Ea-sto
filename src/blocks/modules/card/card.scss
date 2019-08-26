@@ -1,0 +1,89 @@
+.card {
+	&-wrapper {
+		padding-bottom: rem(50px);
+	}
+	&-section {
+		background-color: #f0f0f0;
+	}
+	&__title-text {
+		font-family: $font-family-mont;
+		font-size: rem(42px);
+		color: $grey-color;
+		font-weight: 300;
+		padding: rem(36px) 0;
+		text-align: center;
+		@include md(font-size, rem(30px));
+	} 
+	&-content {
+		display: flex;
+		flex-direction: row;
+		@include lg(flex-direction, column);
+		&__block-first {
+			max-width: 42%;
+			@include lg(max-width, 100%);
+			@include lg(display, flex);
+			@include lg(justify-content, center);
+		}
+		&__block--second {
+			max-width: rem(700px);
+			padding: 0 rem(60px) 0 rem(25px);
+			@include lg(margin-top, rem(30px));
+		}
+		&__block-pic {
+			max-width: 100%;
+		}
+		&__list {
+			padding-left: rem(40px);
+			margin: rem(22px) 0 rem(70px) 0 !important;
+		}
+		&__item {
+			&::before {
+				content: '';
+			    width: 15px;
+			    height: 15px;
+			    background: url('/img/ok_circle.png');
+			    background-size: contain;
+			    background-repeat: no-repeat;
+			    display: block;
+			    position: absolute;
+			    margin-left: -20px;
+			    margin-top: 7px;
+			}
+			&-text {
+				font-family: $font-family-open;
+				color: $grey-color;
+				font-size: rem(17px); 
+			}
+		}
+		&__block-text {
+			font-family: $font-family-open;
+			font-size: rem(16px);
+			color: $grey-color;
+		}
+		&__button {
+			text-align: center;
+			padding: rem(11px) 0;
+			border: 1px solid $violet-color;
+			background-color: $violet-color;
+			border-radius: 7px;
+			transition: all 0.3s ease;
+			max-width: 360px;
+			margin: 0 auto;
+				&:hover {
+					background-color: #4646c7;
+					border: 1px solid #4646c7;
+				}
+			&-link {
+				font-size: rem(17px);
+				text-transform: uppercase;
+				transition: all 0.3s ease;
+				font-family: $font-family-open;
+				color: #fff;
+				@include md(font-size, rem(15px));
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
+}

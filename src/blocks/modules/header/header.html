@@ -1,4 +1,4 @@
-<header class="header-xl header">
+<header id="header" class="header-xl header">
 		<div class="header-wrap row">
 			<div class="logo col-md-6">
 				<a href="/" class="logo-link">
@@ -7,8 +7,8 @@
 				<p class="logo-description">Единый Авторизованный Сервис Технического Осмотра</p>
 			</div>
 			<div class="support col-md-6">
-				<select name="city" id="selectItem" class="city-select">
-				    <option selected id="city">Ваш город</option>
+				<select name="city" id="selectItem" class="city-select" v-model="selected">
+				    <option disabled id="city" value="">Ваш город</option>
 				    <option id="city3">Абакан</option>
 				    <option id="city4">Альметьевск</option>
 				    <option id="city5">Ангарск</option>
