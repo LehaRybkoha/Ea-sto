@@ -1,0 +1,97 @@
+.footer {
+	&-head {
+		min-height: rem(70px);
+		background-color: #fff;
+		@include align-center;
+		align-items: center;
+		padding: rem(10px) 0 rem(10px);
+		justify-content: space-between;
+		@include sm(flex-direction, column);
+	}
+	&-middle {
+		padding: 0 rem(20px);
+		display: flex;
+		justify-content: space-between;
+		@include md(flex-direction, column);
+		@include md(text-align, center);
+		&__link--left, &__link--right {
+			color: #eec13a;
+		}
+		&__text--right {
+			font-size: rem(17px);
+			font-family: $font-family-open;
+			color: $grey-color;			
+		}
+		&__text--left {
+			@include md(margin-bottom, 0);
+		}
+	}
+	&-bottom {
+		&__text {
+			font-size: 9pt;
+			color: #999;
+			padding: rem(20px) rem(30px) rem(30px);
+			text-align: center;
+			line-height: 13pt;
+		}
+		&__img {
+			width: rem(50px);
+			padding-right: rem(15px);
+			float: left;
+		}
+	}
+	&-logo {
+	@include align-center;
+	@include md(justify-content, center);
+	&-pic {
+		width: auto !important;
+		height: rem(48px);
+		padding: 0 rem(15px);
+		border-right: 1px solid #BAB9B6;
+		@include md(border-right, none);  
+	}
+	&-link {
+		&:hover {
+			filter: grayscale(100%);
+			transition: all 0.3s ease;
+		}
+	}
+	&-description {
+		font-family: $font-family-open;
+		font-size: rem(17px);
+		line-height: 125%;
+		text-align: left;
+		color: #555;
+		max-width: rem(305px);
+		margin: 0;
+		@include md(display, none);    
+	}
+}
+	&-support {
+		margin-right: 30px;
+		@include align-center;
+		justify-content: center;
+		@include sm(width, 50%!important);
+		flex-direction: row;
+	&-text {
+		font-family: $font-family-open;
+		font-size: rem(17px);
+		color: $grey-color;
+		@include md(display, none);    
+	}
+	&-email {
+		font-family: $font-family-open;
+		font-size: rem(22px);
+		color: $main-color;
+		font-weight: bold;
+		white-space: nowrap;
+		@include sm(font-size, rem(16px));
+	}
+	&__list {
+		margin: 0;
+	}
+	&__item {
+		text-align: right;
+	}
+}
+}

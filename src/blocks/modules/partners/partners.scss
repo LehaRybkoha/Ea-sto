@@ -1,0 +1,30 @@
+.partners {
+	&__title {
+		&-text {
+			font-family: $font-family-mont;
+			font-size: rem(42px);
+			color: $grey-color;
+			font-weight: 300;
+			padding: rem(36px) 0;
+			text-align: center;
+			@include md(font-size, rem(30px));
+		}
+	}
+	&__list {
+		@include md(display, flex);
+		@include md(justify-content, center);
+		@include md(flex-direction, column);
+	}
+	&__item {
+		@include md(padding-bottom, rem(25px));
+		&-pic {
+			width: auto;
+			height: 48px;
+		}
+	}
+	&-row {
+		padding-bottom: rem(36px);
+		@include md(padding-bottom, 0);
+		@include md(text-align, center);
+	}
+}

@@ -6,4 +6,7 @@ import "%modules%/advantage/advantage";
 import "%modules%/card/card";
 import "%modules%/price/price";
 import "%modules%/FAQ/FAQ";
-import "%modules%/footer/footer"
+import "%modules%/video/video";
+import "%modules%/reviews/reviews";
+import "%modules%/partners/partners";
+import "%modules%/footer/footer";
