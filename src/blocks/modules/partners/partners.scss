@@ -25,6 +25,6 @@
 	&-row {
 		padding-bottom: rem(36px);
 		@include md(padding-bottom, 0);
-		@include md(text-align, center);
+		text-align: center;
 	}
 }
