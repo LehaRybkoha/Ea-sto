@@ -3,20 +3,24 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Помощь с оформлением диагностической карты для ОСАГО"</title>
+        <meta name="description" content="Подлинная Диагностическая Карта в Вашем городе по доступной цене с внесением в базу ЕАИСТО! Только аккредитованные пункты ТО. Круглосуточная поддержка.">
+        <meta name="keywords" content="диагностическая карта осаго, техосмотр недорого, получить диагностическую карту официально, помощь в прохождении техосмотра, техосмотр, помощь в получении диагностической карты">
         <meta property="og:type" content="website">
         <meta property="og:site_name" content="АВТОГИБДД">
         <meta property="og:title" content="Помощь с оформлением диагностической карты для ОСАГО">
         <meta property="og:description" content="Подлинная Диагностическая Карта в Вашем городе по доступной цене с внесением в базу ЕАИСТО! Только аккредитованные пункты ТО. Круглосуточная поддержка.">
-        <meta property="og:url" content="http://ea-sto.com/index.html">
+        <meta property="og:url" content="http://avtogibdd.ru/index.html">
         <meta property="og:locale" content="ru_RU">
         <meta property="og:image" content="/img/img-og.jpg">
         <meta property="og:image:width" content="968">
         <meta property="og:image:height" content="504">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
         <link rel="shortcut icon" href="../img/favicons/apple-touch-icon.png" type="image/x-icon">
         <link rel="apple-touch-icon" href="../../img/favicons/apple-touch-icon.png"> 
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -37,10 +41,8 @@
     </head>
     <body>
     <div class="wrapper">
-        <div id="select-vue">
-            @@include("../blocks/modules/header/header.html")
-            @@include("../blocks/modules/about/about.html")
-        </div>  
+        @@include("../blocks/modules/header/header.html")
+        @@include("../blocks/modules/about/about.html")
         @@include("../blocks/modules/steps/steps.html")
         @@include("../blocks/modules/form/form.html")
         @@include("../blocks/modules/advantage/advantage.html")
@@ -52,12 +54,20 @@
         @@include("../blocks/modules/partners/partners.html")
         @@include("../blocks/modules/footer/footer.html")
     </div>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
+
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        
+        <script src="../js/jquerySteps.js"></script>
         <script src="../js/main.js"></script>
     </body>
 </html>

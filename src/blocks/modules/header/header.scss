@@ -29,14 +29,14 @@
 	}
 	&-email {
 		font-family: $font-family-open;
-		font-size: rem(22px);
+		font-size: rem(18px);
 		color: $main-color;
 		font-weight: bold;
 		white-space: nowrap;
 		@include sm(font-size, rem(16px));
 	}
 	&__list {
-		margin: 0;
+		margin-right: 20px !important;
 	}
 	&__item {
 		text-align: right;
@@ -72,14 +72,17 @@
 		line-height: 125%;
 		text-align: left;
 		color: #555;
-		max-width: rem(305px);
+		min-width: rem(330px);
+		max-width: rem(330px);
 		margin: 0;
-		@include md(display, none);    
+		@include md(display, none); 
+		@include xl(min-width, 0);    
 	}
 }
 .city {
-	@include sm(width, 50%!important);
-	@include md(justify-content, center);
+	@include sm(width, 35%!important);
+	@include sm(justify-content, flex-start !important);
+	@include md(justify-content, center !important);
 	@include md(display, flex);
 	order: 2;
 }
@@ -89,6 +92,7 @@
     padding: 4px;
     font-family: 'Open Sans', 'Arial', 'sans-serif' !important;
     z-index: 1;
+    background-color: #fff;
     @include sm(max-width, 80%);
     @include lg(max-width, 45%);
 }

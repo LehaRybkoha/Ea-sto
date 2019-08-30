@@ -1,10 +1,3 @@
-new Vue({
-  el: '#select-vue',
-  data: {
-    selected: ''
-  }
-})
-
 $(function(){
   $('a[href^="#"]').on('click', function(event) {
     // отменяем стандартное действие

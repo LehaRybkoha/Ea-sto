@@ -1,0 +1,74 @@
+.nfound {
+	background-image: url("/img/404-bg.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    min-height: 80vh;
+    @include align-center;
+    &-wrapp {
+    	@include align-center;
+    	flex-direction: column;
+    	justify-content: center;
+    	max-width: rem(780px);
+    	margin: 0 auto;
+    }
+    &__title {
+    	padding-bottom: rem(15px);
+    	&-text {
+    		font-family: $font-family-mont;
+    		font-weight: 300;
+    		font-size: rem(180px);
+    		color: $grey-color;
+    		text-align: center;
+    		margin: rem(20px) 0 rem(10px) 0;
+    		@include md(font-size, rem(130px));
+    		@include sm(font-size, rem(50px));
+    	}
+    	&-desc {
+    		font-family: $font-family-mont;
+    		line-height: 142%;
+    		color: $grey-color;
+    		text-align: center;
+    		&-first {
+    			font-size: rem(30px);
+    			font-weight: 300;
+    		}
+    		&-second {
+    			font-size: rem(17px);
+    			font-family: $font-family-open !important;
+    			font-size: rem(17px);
+    			margin-bottom: 10px;
+    		}
+    		&-third {
+    			font-weight: 300;
+    			font-size: rem(16px);
+    		}
+    		&-link {
+    			color: #eec13a;
+    			font-weight: bold;
+    		}
+    	}
+    }
+    &__button {
+		margin: rem(50px) 0 rem(100px) 0;
+		text-align: center;
+		&-link {
+			font-size: rem(17px);
+			padding: rem(11px) rem(15px);
+			border: 1px solid #eec13a;
+			background-color: #eec13a;
+			border-radius: 7px;
+			text-transform: uppercase;
+			transition: all 0.3s ease;
+			font-family: $font-family-open;
+			color: #fff;
+			@include md(font-size, rem(15px));  
+			&:hover {
+				color: #fff;
+				background-color: rgb(224, 173, 20);
+				border: 1px solid rgb(224, 173, 20);
+				box-shadow: 0 3px 20px rgba(224, 173, 20, .55);
+			}
+		}
+	}
+}

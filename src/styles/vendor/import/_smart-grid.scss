@@ -302,67 +302,67 @@ $fields: 15px;
 }
 
 @mixin xs($name, $value){
-    @media screen and (max-width: $break_xs){
+    @media screen and (min-width: $break_xs){
         #{$name}: $value;
     }
 }
 
 @mixin xs-block(){
-    @media screen and (max-width: $break_xs){
+    @media screen and (min-width: $break_xs){
         @content;
     }
 }
 
 @mixin sm($name, $value){
-    @media screen and (max-width: $break_sm){
+    @media screen and (min-width: $break_sm){
         #{$name}: $value;
     }
 }
 
 @mixin sm-block(){
-    @media screen and (max-width: $break_sm){
+    @media screen and (min-width: $break_sm){
         @content;
     }
 }
 
 @mixin md($name, $value){
-    @media screen and (max-width: $break_md){
+    @media screen and (min-width: $break_md){
         #{$name}: $value;
     }
 }
 
 @mixin md-block(){
-    @media screen and (max-width: $break_md){
+    @media screen and (min-width: $break_md){
         @content;
     }
 }
 
 @mixin lg($name, $value){
-    @media screen and (max-width: $break_lg){
+    @media screen and (min-width: $break_lg){
         #{$name}: $value;
     }
 }
 
 @mixin lg-block(){
-    @media screen and (max-width: $break_lg){
+    @media screen and (min-width: $break_lg){
         @content;
     }
 }
 
 @mixin xl($name, $value){
-    @media screen and (max-width: $break_xl){
+    @media screen and (min-width: $break_xl){
         #{$name}: $value;
     }
 }
 
 @mixin xl-block(){
-    @media screen and (max-width: $break_xl){
+    @media screen and (min-width: $break_xl){
         @content;
     }
 }
 
-@mixin from($max_width){
-    @media screen and (max-width: $max_width){
+@mixin from($min_width){
+    @media screen and (min-width: $min_width){
         @content;
     }
 }
@@ -373,8 +373,8 @@ $fields: 15px;
     }
 }
 
-@mixin from-to($max_width, $max_width){
-    @media screen and (max-width: $max_width) and (max-width: $max_width){
+@mixin from-to($min_width, $max_width){
+    @media screen and (min-width: $min_width) and (max-width: $max_width){
         @content;
     }
 }

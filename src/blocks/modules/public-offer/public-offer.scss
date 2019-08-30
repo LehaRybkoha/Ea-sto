@@ -1,0 +1,67 @@
+.public-offer {
+	margin: 0 rem(100px);
+	&__title {
+		&-text {
+			font-family: $font-family-mont;
+			font-size: rem(42px);
+			line-height: 150%;
+			font-weight: 300;
+			text-align: center;
+			color: $grey-color;
+			@include md(font-size, rem(30px));
+			padding: rem(30px) 0;
+		}
+		&-desc {
+			font-family: $font-family-open;
+			font-size: rem(17px);
+			line-height: 145%;
+			padding-bottom: rem(32px);
+			color: $grey-color;
+		}
+	}
+	&-content {
+		&__section {
+			&-title {
+				font-family: $font-family-mont;
+				font-weight: bold;
+				font-size: rem(22px);
+				line-height: 150%;
+				color: $grey-color;
+				text-align: center;
+				display: block;
+				padding: rem(10px) 0;
+			}
+		}
+		&__item {
+			&-text {
+				font-family: $font-family-open;
+				font-size: rem(17px);
+				line-height: 145%;
+				margin-bottom: rem(15px);
+				color: $grey-color;
+			}
+		}
+		&__button {
+			margin: rem(50px) 0 rem(100px) 0;
+			text-align: center;
+			&-link {
+				font-size: rem(17px);
+				padding: rem(11px) rem(15px);
+				border: 1px solid #eec13a;
+				background-color: #eec13a;
+				border-radius: 7px;
+				text-transform: uppercase;
+				transition: all 0.3s ease;
+				font-family: $font-family-open;
+				color: #fff;
+				@include md(font-size, rem(15px));  
+				&:hover {
+					color: #fff;
+					background-color: rgb(224, 173, 20);
+					border: 1px solid rgb(224, 173, 20);
+					box-shadow: 0 3px 20px rgba(224, 173, 20, .55);
+				}
+			}
+		}
+	}
+}

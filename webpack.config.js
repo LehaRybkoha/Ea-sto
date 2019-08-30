@@ -3,7 +3,8 @@ const webpack = require("webpack");
 
 module.exports = {
     entry: {
-        main: "./src/js/index.js"
+        main: "./src/js/index.js",
+        jquerySteps: "./src/js/import/jquerySteps.js"
     },
     
     output: {
