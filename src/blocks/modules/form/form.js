@@ -1,89 +1,13 @@
-let form = $("#form");
-
-// $(function(){
-//  $('.form-content__first-step').validate({
-//  	rules: {
-//  		onsubmit: false,
-//  		sername:"required",
-//  		name:"required",
-//  		email: {
-//       		required: true,
-//       		email: true
-//     	},
-//  	},
-//  })
-// });
-
-
-$( function() {
+$(document).ready(function() {
   let $signupForm = $( '#form' );
-  $('#mark').keyup(function() {
-    var replaceSpace = $(this).val(); 
+  let form = $("#form");
+  let empty = $("#emptyWeight");
+  let permanent = $("#permanentWeight"), timeOut;
+  let phone = $(".phone");
+  phone.mask("+7(999)-999-99-99");
 
-        var result = replaceSpace.replace(/[““()/-]/g, " ");
 
-        $("#mark").val(result);
-
-	});
-  $('#model').keyup(function() {
-    let replaceSpace = $(this).val(); 
-
-        let result = replaceSpace.replace(/[,.““()/-]/g, " ");
-
-        $("#model").val(result);
-
-  });
-  $('#milage').keyup(function() {
-    let milage = $(this).val();
-    let result = Math.round(milage / 1000) * 1000;
-    result += " км";
-        
-    $("#milage").blur(function() {
-		$("#milage").val(result);
-	});
-  });
-  $('#docNum-first').keyup(function() {
-    let docNumfFirst = $(this).val();
-    let result = docNumfFirst.replace(/[A-Za-z]/g, "");
-        $("#docNum-first").val(result);
-  });
-  $('#docNum-second').keyup(function() {
-    let docNumSecond = $(this).val();
-    let result = docNumSecond.replace(/\D [^0-9]/g, "");
-        $("#docNum-seclnd").val(result);
-  });
-  $('#vin').keyup(function() {
-    let vinLength = $(this).val().length;
-    let vin = $(this).val();
-    let result = vin.replace(/[а-яА-ЯёЁ]/g, "");
-        $("#vin").val(result);
-
-    $("#vin").blur(function() {
-		if(vinLength < 16) {
-	    	$("#vin").val("");
-	    	$("#vin").val("ОТСУТСВУЕТ");
-	    	$('#checkVin').html("ОТСУТСВУЕТ");
-	    }
-	});
-	while(vinLength == 17) {
-		$('#vin').unbind();
-		$('#checkVin').html("");
-		$('#checkVin').html(vin);
-		vinLength = false;
-		break;
-	}
-	// if(vinLength == 17) {
-	// 	$('#vin').unbind();
-	// 	$('#checkVin').html("");
-	// 	$('#checkVin').html(vin);
-	// } else if (vinLength < 16){
-	// 	$('#checkVin').html("");
-	// 	$('#checkVin').html("ОТСУТСВУЕТ");
-	// }
-
- });
-
-  $signupForm.validate({
+	$signupForm.validate({
   	rules: {
  		sername:"required",
  		name:"required",
@@ -120,45 +44,126 @@ $( function() {
       return stepIsValid;
     }
   });
+
+ permanent.keyup(function() {
+ 	clearTimeout(timeOut);
+ 	timeOut = setTimeout(weightFunc, 2000, $(this).val())
+ });
+
+ permanent.keydown(function() {
+ 	clearTimeout(timeOut);
+ });
+
+ function weightFunc() {
+ 	if(empty.val() > permanent.val()) {
+ 		permanent.addClass('error')
+ 		permanent.val("");
+ 		alert("Масса без нагрузки должна быть меньше Разрешенной массы, пожалуйста, проверьте данные и введите их еще раз");
+ 	}
+ }
+
+  $('#mark').keyup(function() {
+    var replaceSpace = $(this).val(); 
+
+        var result = replaceSpace.replace(/[““()/-]/g, " ");
+
+        $("#mark").val(result);
+
+	});
+
+  $('#model').keyup(function() {
+    let replaceSpace = $(this).val(); 
+
+        let result = replaceSpace.replace(/[,.““()/-]/g, " ");
+
+        $("#model").val(result);
+
+  });
+
+  $('#milage').keyup(function() {
+    let milage = $(this).val();
+    milage = Math.round(milage / 1000) * 1000;
+    milage += " км";
+        
+    $("#milage").blur(function() {
+		$("#milage").val(milage);
+		$("#checkMilage").html(milage);
+	});
+  });
+
+  $('#docNum-first').keyup(function() {
+    let docNumfFirst = $(this).val();
+    let result = docNumfFirst.replace(/[A-Za-z]/g, "");
+        $("#docNum-first").val(result);
+  });
+
+  $('#docNum-second').keyup(function() {
+    let docNumSecond = $(this).val();
+    let result = docNumSecond.replace(/\D [^0-9]/g, "");
+        $("#docNum-seclnd").val(result);
+  });
+
+  $('#vin').keyup(function() {
+  	let vinLength = $(this).val().length;
+  	let vin = $(this).val();
+    let result = vin.replace(/[А-Яа-яЁе]/g, "").replace(/[0]/g, "O");
+    $("#vin").val(result);
+    $("#checkVin").val(vin);
+    $("#vin").blur(function() {
+  	if(vinLength < 16) {
+    	$("#vin").val("");
+    	$("#vin").val("ОТСУТСВУЕТ");
+    	$('#checkVin').html("ОТСУТСВУЕТ");
+    }
+  	});
+    if (vinLength === 17) {
+		$('#vin').unbind("blur");
+		$('#checkVin').html("");
+		$('#checkVin').html(vin);
+	}
+ });
+
+ $('#carcass').keyup(function() {
+    let carcass = $(this).val();
+    let result = carcass.replace(/[А-Яа-яЁе]/g, "");
+    $("#carcass").val(result);
+    $("#checkCarcass").html(carcass);
+ });
+
+ $('#frame').keyup(function() {
+    let frame = $(this).val();
+    let result = frame.replace(/[А-Яа-яЁе]/g, "");
+    $("#frame").val(result);
+    $("#checkFrame").html(frame);
+ });
+
+  $('#gosNum').keyup(function() {
+    let gosNum = $(this).val();
+    let result = gosNum.replace(/[A-Za-zа-яЁе]/g, "");
+    $("#gosNum").val(result);
+    $("#checkGosNum").html(gosNum);
+ });
+
+  $('#region').keyup(function() {
+    let region = $(this).val();
+    let result = region.replace(/[A-Za-zА-Яа-яЁё]/g, "");
+    $("#region").val(result);
+    $("#checkRegion").html(region);
+ });
+  $('.phone').keyup(function() {
+   let val = $('.phone').val();
+   $('#checkPhone').html(val);
+ });
+
+$( "#stepDownOne" ).on( "click", function() {
+	$signupForm.formToWizard('GotoStep', '1');
 });
-
-
-
-// $(document).ready(function(){
-//   $('.slick').slick({
-//   	nextArrow: $('.nextArr'),
-
-//   });
-// });
-// $("#form").steps({
-//     headerTag: "h3",
-//     bodyTag: "fieldset",
-//     enableAllSteps: true,
-//     enablePagination: false
-// });
-
-// $('#form').submit(function() { 
-//     // submit the form 
-//     $(this).ajaxSubmit(); 
-//     // return false to prevent normal browser submit and page navigation 
-//     return false; 
-// });
-
-
-$(document).ready(function(){
-var masking = $(".phone");
-masking.mask("+7(999)-999-99-99");
-
-$('.phone').keyup(function() {
-  var val = $('.phone').val();
-  $('#checkPhone').html(val);
+$( "#stepDownTwo" ).on( "click", function() {
+	$signupForm.formToWizard('GotoStep', '2');
 });
-
-// var selected = new Array()
-// $(".form-content__use--checkbox:checked").each(function() {
-//        selected.push($(".form-content__use--text").attr('value'));
-// });
-// console.log(selected);
+$( "#stepDownThree" ).on( "click", function() {
+	$signupForm.formToWizard('GotoStep', '3');
+});
 
 $( "#use-first" ).on( "click", function() {
 	if($(this).is(":checked")) {
@@ -206,62 +211,59 @@ $( "#empty-first" ).on( "change", function() {
     	$("#vin").val("");
    	}
 	});
-});
+$( "#asVin-first" ).on( "change", function() {
+	let vin = $("#vin").val();
+	if($(this).is(':checked')) {
+		$("#carcass").val(vin);
+		$("#checkCarcass").html(vin);
+  	}
+    else {
+    	$("#carcass").val("");
+   	}
+	});
+$( "#empty-second" ).on( "change", function() {
+	if($(this).is(':checked')) {
+		$("#carcass").val("");
+	    $("#carcass").val("ОТСУТСВУЕТ");
+	    $('#checkCarcass').html("ОТСУТСВУЕТ");
+  	}
+    else {
+    	$("#carcass").val("");
+   	}
+	});
+$( "#empty-third" ).on( "change", function() {
+	if($(this).is(':checked')) {
+		$("#frame").val("");
+	    $("#frame").val("ОТСУТСВУЕТ");
+	    $('#checkFrame').html("ОТСУТСВУЕТ");
+  	}
+    else {
+    	$("#frame").val("");
+   	}
+	});
+$( "#asVin-second" ).on( "change", function() {
+	let vin = $("#vin").val();
+	if($(this).is(':checked')) {
+		$("#frame").val(vin);
+		$("#checkFrame").html(vin);
+  	}
+    else {
+    	$("#frame").val("");
+   	}
+	});
 
-// $('#empty-first').on('change', function () {
-// 	if ($(this).val() == '') {
-// 	    $('input[name=vin]').val('Отсутствует');
-// 	}
-// });
+$( "#empty-fourth" ).on( "change", function() {
+	if($(this).is(':checked')) {
+		$("#gosNum, #region").val("");
+	    $("#gosNum, #region").val("ОТСУТСВУЕТ");
+	    $('#checkGosNum').html("ОТСУТСВУЕТ");
+  	}
+    else {
+    	$("#gosNum, #region").val("");
+   	}
+	});
 
-
-
-new Vue ({
-	el: '#form',
-	data: {
-		sername:null,
-		name:null,
-		patronymic:null,
-		email:null,
-		phone:null,
-		city:"Ваш город",
-		type:"Легковые автомобили",
-		mark:null,
-		model:null,
-		year:null,
-		fuel:"Бензин",
-		breaks:"Гидравлическая",
-		tires:"Не выбрано",
-		milage:null,
-		docType:"Свидетельство о регистрации ТС",
-		docNumFirst:null,
-		docNumSecond:null,
-		police:null,
-		docDay:"01",
-		docMonth:"01",
-		docYear:"2019",
-		vin:null,
-		carcass:null,
-		frame:null,
-		loadWeight:null,
-		permanentWeight:null,
-		gosNum:null,
-		region:null,
-		nothing4:null,
-		nothing3:null,
-		nothing2:null,
-		nothing1:null,
-		asVin2:null,
-		asVin1:null
-	},
-	methods: {
-
-	}
-});
-
-
-$(document).ready(function() {
-	$(".form-content__field-input--one").focus(function() {
+$(".form-content__field-input--one").focus(function() {
 		$(".warning-message-sername").slideDown("slow");
 	});
 	$(".form-content__field-input--one").blur(function() {
@@ -393,4 +395,151 @@ $(document).ready(function() {
 	$(".form-content__field-input--twentyFive").blur(function() {
 		$(".warning-message-gosNum").slideUp("slow");
 	});
+
+
+	// $.ajax({
+ //            url: '/form.php',
+ //            data: {
+ //                checkSername:checkSername,
+ //                checkPatronymic:checkPatronymic,
+ //                checkEmail:checkEmail,
+ //                checkPhone:checkPhone,
+ //                checkCity:checkCity,
+ //                checkType:checkType,
+ //                checkMark:checkMark,
+ //                checkModel:checkModel,
+ //                checkYear:checkYear,
+ //                checkFuel:checkFuel,
+ //                checkBreaks:checkBreaks,
+ //                checkTires:checkTires,
+ //                checkMilage:checkMilage,
+ //                checkUse1:checkUse1,
+ //                checkUse2:checkUse2,
+ //                checkUse3:checkUse3,
+ //                checkUse4:checkUse4,
+ //                checkDocType:checkDocType,
+ //                checkDocNum:checkDocNum,
+ //                checkPolice:checkPolice,
+ //                checkDate:checkDate,
+ //                checkVin:checkVin,
+ //                checkCarcass:checkCarcass,
+ //                checkFrame:checkFrame,
+ //                checkLoad:checkLoad,
+ //                checkPerm:checkPerm,
+ //                checkGosNum:checkGosNum,
+ //            },
+ //            type: "POST",
+ //            success: function(data) {
+ //                alert("Succes");
+ //            }
+ //        });
+});
+
+$(function() {
+		let checkName = $("#checkName").val();
+	let checkSername = $("#checkSername").val();
+	let checkPatronymic = $("#checkPatronymic").val();
+	let checkEmail = $("#checkEmail").val();
+	let checkPhone = $("#checkPhone").val();
+	let checkCity = $("#checkCity").val();
+	let checkType = $("#checkType").val();
+	let checkMark = $("#checkMark").val();
+	let checkModel = $("#checkModel").val();
+	let checkYear = $("#checkYear").val();
+	let checkFuel = $("#checkFuel").val();
+	let checkBreaks = $("#checkBreaks").val();
+	let checkTires = $("#checkTires").val();
+	let checkMilage = $("#checkMilage").val();
+	let checkUse1 = $("#checkUse1").val();
+	let checkUse2 = $("#checkUse2").val();
+	let checkUse3 = $("#checkUse3").val();
+	let checkUse4 = $("#checkUse4").val();
+	let checkDocType = $("#checkDocType").val();
+	let checkDocNum = $("#checkDocNum").val();
+	let checkPolice = $("#checkPolice").val();
+	let checkDate = $("#checkDate").val();
+	let checkVin = $("#checkVin").val();
+	let checkCarcass = $("#checkCarcass").val();
+	let checkFrame = $("#checkFrame").val();
+	let checkLoad = $("#checkLoad").val();
+	let checkPerm = $("#checkPerm").val();
+	let checkGosNum = $("#checkGosNum, checkRegion").val();
+
+      $('#form').submit(function(e) {
+        var $form = $(this);
+        $.ajax({
+          type: $form.attr('method'),
+          url: $form.attr('action'),
+          data: {
+            checkSername:checkSername,
+            checkPatronymic:checkPatronymic,
+            checkEmail:checkEmail,
+            checkPhone:checkPhone,
+            checkCity:checkCity,
+            checkType:checkType,
+            checkMark:checkMark,
+            checkModel:checkModel,
+            checkYear:checkYear,
+            checkFuel:checkFuel,
+            checkBreaks:checkBreaks,
+            checkTires:checkTires,
+            checkMilage:checkMilage,
+            checkUse1:checkUse1,
+            checkUse2:checkUse2,
+            checkUse3:checkUse3,
+            checkUse4:checkUse4,
+            checkDocType:checkDocType,
+            checkDocNum:checkDocNum,
+            checkPolice:checkPolice,
+            checkDate:checkDate,
+            checkVin:checkVin,
+            checkCarcass:checkCarcass,
+            checkFrame:checkFrame,
+            checkLoad:checkLoad,
+            checkPerm:checkPerm,
+            checkGosNum:checkGosNum,
+            },
+        }).done(function() {
+          console.log('success');
+        }).fail(function() {
+          console.log('fail');
+        });
+        //отмена действия по умолчанию для кнопки submit
+        e.preventDefault(); 
+      });
+    });
+
+new Vue ({
+	el: '#form',
+	data: {
+		sername:null,
+		name:null,
+		patronymic:null,
+		email:null,
+		phone:null,
+		city:"Ваш город",
+		type:"Легковые автомобили",
+		mark:null,
+		model:null,
+		year:null,
+		fuel:"Бензин",
+		breaks:"Гидравлическая",
+		tires:"Не выбрано",
+		milage:null,
+		docType:"Свидетельство о регистрации ТС",
+		docNumFirst:null,
+		docNumSecond:null,
+		police:null,
+		docDay:"01",
+		docMonth:"01",
+		docYear:"2019",
+		loadWeight:null,
+		permanentWeight:null,
+		nothing4:null,
+		nothing3:null,
+		nothing2:null,
+		nothing1:null,
+		asVin2:null,
+		asVin1:null
+	},
 });

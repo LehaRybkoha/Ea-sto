@@ -243,6 +243,13 @@
 	background-color: $main-color;
 	border-radius: 6px;
 	padding: rem(12px) rem(40px);
+	cursor: pointer;
+	transition: all 0.3s ease;
+	&:hover {
+		background-color: #5d7bff;
+    	color: #fff;
+    	border-color: #5d7bff;
+	}
 	&--third {
 		margin-top: rem(75px);
 	}
@@ -295,6 +302,7 @@ input, select {
 .edit-button, .edit-button--second, .edit-button--third {
 	border: 1px solid #6c747b;
 	padding: rem(10px) rem(20px);
+	color: $grey-color;
 	border-radius: 6px;
 	background-color: #fff;
 	position: absolute;
@@ -305,6 +313,7 @@ input, select {
 }
 
 .request {
+	display: none;
 	&-head {
 	    border-top: 6px solid #459ac2;
     	border-radius: 6px 6px 0 0;
@@ -446,4 +455,27 @@ label.valid {
 
 .slick {
 	outline: none;
+}
+
+.submitButton-block {
+	display: flex!important;
+	justify-content: center;
+}
+
+.submitButton {
+	&:active {
+		.request {
+			display: block;
+		}
+		.form-content {
+			display: none;
+		}
+		.form-head {
+			display: none;
+		}
+	}
+}
+
+.formImportant {
+	color: red;
 }

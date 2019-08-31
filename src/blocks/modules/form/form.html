@@ -1,5 +1,5 @@
 <div class="form-section">
-  <form id="form" class="form">
+  <form id="form" action="#" method="POST" class="form">
     <div class="form-wrapper">  
       <div class="form-head">
         <h4 class="form-head-text">Диагностическая карта без очередей</h4>
@@ -10,7 +10,7 @@
           <span class="form-content__first-step--text">Этап 1 из 3</span>
           <h3 class="form-content__first-step--title">Ваши данные</h3>
           <div class="form-content__field form-content__field-fullName form-content__field-name">
-            <span class="form-content__field-text">Фамилия *</span>
+            <span class="form-content__field-text">Фамилия <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap sername cont_one">
               <input v-model="sername" type="text" name="sername" class="form-content__field-input form-content__field-input--one">
             </div>
@@ -19,7 +19,7 @@
           Введите фамилию собственника (или представителя ООО), указанного в СРТС/ПТС. Если происходит переоформление ТС, то укажите фамилию будущего владельца.
       </p>
           <div class="form-content__field form-content__field-fullName form-content__field-sername">
-            <span class="form-content__field-text">Имя *</span>
+            <span class="form-content__field-text">Имя <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
               <input v-model="name" id="" type="text" name="name" class="form-content__field-input form-content__field-input--two">
             </div>
@@ -37,7 +37,7 @@
           Если отчество отсутствует, оставьте поле пустым.
       </p>
           <div class="form-content__field form-content__field-contact form-content__field-email">
-            <span class="form-content__field-text">Эл. почта *</span>
+            <span class="form-content__field-text">Эл. почта <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap cont_one">
               <input v-model="email" type="text" name="email" placeholder="user@mail.ru" class="form-content__field-input form-content__field-input--fourth">
             </div>
@@ -285,7 +285,7 @@
             </div>
           </div>
           <div class="form-content__field form-content__field-typeOfCar form-content__field-mark">
-            <span class="form-content__field-text">Марка *</span>
+            <span class="form-content__field-text">Марка <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
               <input id="mark" type="text" name="mark" class="form-content__field-input form-content__field-input--eight" v-model="mark">
             </div>
@@ -294,7 +294,7 @@
             Впишите марку так, как указано в вашем документе. Можно вписать как на английском, так и на русском языке.
       </p>
           <div class="form-content__field form-content__field-typeOfCar form-content__field-model">
-            <span class="form-content__field-text">Модель *</span>
+            <span class="form-content__field-text">Модель <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
               <input id="model" type="text" name="model" class="form-content__field-input form-content__field-input--nine" v-model="model">
             </div>
@@ -306,7 +306,7 @@
           официальная база не сможет подтвердить ДК
       </p>
       <div class="form-content__field form-content__field-typeOfCar form-content__field-year">
-            <span class="form-content__field-text">Год выпуска *</span>
+            <span class="form-content__field-text">Год выпуска <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
               <input id="year" type="number" name="year" class="form-content__field-input form-content__field-input--ten" placeholder="____" data-mask="0000" autocomplete="off" maxlength="4" v-model="year">
             </div>
@@ -900,7 +900,7 @@
           Если Вам неизвестна марка шин, поставьте любое из значений.
       </p>
           <div class="form-content__field form-content__field-mileage form-content__field-mileage">
-            <span class="form-content__field-text">Пробег (км) *</span>
+            <span class="form-content__field-text">Пробег (км) <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
               <input id="milage" type="text" name="milage" class="form-content__field-input form-content__field-input--fourteen" placeholder="км" v-model="milage">
             </div>
@@ -940,7 +940,7 @@
           <span class="form-content__third-step--text">Этап 3 из 3</span>
           <h3 class="form-content__third-step--title">Тип, состояние и назначение ТС</h3>
           <div class="form-content__field form-content__field-docType">
-            <span class="form-content__field-text">Тип документа *</span>
+            <span class="form-content__field-text">Тип документа <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
               <select name="docType" id="docType" class="form-content__field-input form-content__field-input--fiveteen" v-model="docType">
                 <option value="Свидетельство о регистрации ТС">Свидетельство о регистрации ТС</option>
@@ -949,7 +949,7 @@
             </div>
           </div>
           <div class="form-content__field">
-            <span class="form-content__field-text">Серия и<br>номер документа *</span>
+            <span class="form-content__field-text">Серия и<br>номер документа <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap form-content__field-wrap--docNum">
               <input type="text" id="docNum-first" class="form-content__field-input form-content__field-input--docNum form-content__field-input--sixteen" maxlength="4" placeholder="00AA" name="docNumFirst" v-model="docNumFirst">
               <input type="text" id="docNum-second" class="form-content__field-input form-content__field-input--docNumSec form-content__field-input--seventeen" maxlength="6" placeholder="000000" name="docNumSecond" value="" v-model="docNumSecond">
@@ -962,13 +962,13 @@
             Номер указывается без пробелов, 6 цифр слитно.
         </p>
           <div class="form-content__field form-content__field-issue">
-            <span class="form-content__field-text">Кем выдан *</span>
+            <span class="form-content__field-text">Кем выдан <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
               <input type="text" name="police" class="form-content__field-input form-content__field-input--eighteen" placeholder="Например, ГИБДД" v-model="police">              
             </div>
           </div>
           <div class="form-content__field form-content__field-date">
-            <span class="form-content__field-text">Дата выдачи *</span>
+            <span class="form-content__field-text">Дата выдачи <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap form-content__field-wrap--date">
               <div class="form-content__field-select">
                 <select name="docDay" id="docDay" class="form-content__field-input form-content__field-input--date form-content__field-input--nineteen" v-model="docDay">
@@ -1110,7 +1110,7 @@
           <div class="form-content__field form-content__field-vin">
             <span class="form-content__field-text">VIN-номер</span>
             <div class="form-content__field-wrap">
-              <input id="vin" type="text" name="vin" class="form-content__field-input form-content__field-input--twenty" v-model="vin" maxlength="17">
+              <input id="vin" type="text" name="vin" class="form-content__field-input form-content__field-input--twenty" maxlength="17">
             </div>
           </div>
           <div class="form-content__field-checkbox">
@@ -1118,8 +1118,8 @@
             <ul class="use__list">
             <span class="form-content__field-text"></span>
               <li class="use__item">
-                <input id="empty-first" type="checkbox" name="nothing1" class="form-content__terms--checkbox" v-model="nothing1">
-                <label id="nothingLabel1" for="empty-first" class="form-content__terms--text" value="Отсутствует" checked>Отсутствует</label>
+                <input id="empty-first" type="checkbox" name="nothing1" class="form-content__terms--checkbox">
+                <label id="nothingLabel1" for="empty-first" class="form-content__terms--text" value="Отсутствует">Отсутствует</label>
               </li>
             </ul>
           </div>
@@ -1129,7 +1129,7 @@
           <div class="form-content__field form-content__field-carcass">
             <span class="form-content__field-text">Номер кузова</span>
             <div class="form-content__field-wrap">
-              <input type="text" name="carcass" class="form-content__field-input form-content__field-input--twentyOne" v-model="carcass">
+              <input id="carcass" type="text" name="carcass" class="form-content__field-input form-content__field-input--twentyOne">
             </div>
           </div>
           <div class="form-content__field-checkbox">
@@ -1137,22 +1137,22 @@
             <ul class="use__list">
             <span class="form-content__field-text"></span>
               <li class="use__item">
-                <input id="asVin-first" type="checkbox" name="asVin1" class="form-content__terms--checkbox" v-model="asVin1">
+                <input id="asVin-first" type="checkbox" name="asVin1" class="form-content__terms--checkbox">
                 <label for="asVin-first" class="form-content__terms--text">Как VIN</label>
               </li>
               <li class="use__item">
-                <input id="empty-second" type="checkbox" name="nothing2" class="form-content__terms--checkbox" v-model="nothing2">
-                <label for="empty-second" class="form-content__terms--text">Отсутствует</label>
+                <input id="empty-second" type="checkbox" name="nothing2" class="form-content__terms--checkbox">
+                <label for="empty-second" class="form-content__terms--text" value="Отсутствует">Отсутствует</label>
               </li>
             </ul>
           </div>
           <p class="warning-message warning-message-carcass">       
-          Если номер кузова отсутствует, оставьте поле пустым.
+          Номер кузова не может содержать в себе русские буквы. Для грузовых автомобилей, у которых в документе указано «КАБ» или «КАБИНА», необходимо указать только номер после данной фразы
       </p>
           <div class="form-content__field form-content__field-frame">
             <span class="form-content__field-text">Номер рамы</span>
             <div class="form-content__field-wrap">
-              <input type="text" name="frame" class="form-content__field-input form-content__field-input--twentyTwo" v-model="frame">
+              <input id="frame" type="text" name="frame" class="form-content__field-input form-content__field-input--twentyTwo">
             </div>
           </div>
           <div class="form-content__field-checkbox">
@@ -1160,12 +1160,12 @@
             <ul class="use__list">
             <span class="form-content__field-text"></span>
               <li class="use__item">
-                <input id="asVin-second" type="checkbox" name="asVin2" class="form-content__terms--checkbox" v-model="asVin2">
+                <input id="asVin-second" type="checkbox" name="asVin2" class="form-content__terms--checkbox">
                 <label for="asVin-second" class="form-content__terms--text">Как VIN</label>
               </li>
               <li class="use__item">
-                <input id="empty-thirdfourth" type="checkbox" name="nothing3" class="form-content__terms--checkbox" v-model="nothing3">
-                <label for="empty-thirdfourth" class="form-content__terms--text">Отсутствует</label>
+                <input id="empty-third" type="checkbox" name="nothing3" class="form-content__terms--checkbox">
+                <label for="empty-third" class="form-content__terms--text">Отсутствует</label>
               </li>
             </ul>
           </div>
@@ -1178,26 +1178,26 @@
             </div>
           </div>
           <div class="form-content__field form-content__field-loadWeight">
-            <span class="form-content__field-text">Масса без нагрузки *</span>
-            <input id="emptyWeight" type="text" name="loadWeight" class="form-content__field-input form-content__field-input--twentyThree" placeholder="0" v-model="loadWeight">
+            <span class="form-content__field-text">Масса без нагрузки <span class="formImportant">*</span></span>
+            <input id="emptyWeight" type="text" name="emptyWeight" class="form-content__field-input form-content__field-input--twentyThree" placeholder="0" v-model="loadWeight">
           </div>
           <p class="warning-message warning-message-loadWeight">       
           Масса без нагрузки не может быть больше Разрешённой массы.
       </p>
           <div class="form-content__field form-content__field-permanentWeight">
-            <span class="form-content__field-text">Разрешенная масса *</span>
+            <span class="form-content__field-text">Разрешенная масса <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
-              <input id="fullWeight" type="text" name="permanentWeight" class="form-content__field-input form-content__field-input--twentyFour" placeholder="0" v-model="permanentWeight">
+              <input id="permanentWeight" type="text" name="permanentWeight" class="form-content__field-input form-content__field-input--twentyFour" placeholder="0" v-model="permanentWeight">
             </div>
           </div>
           <p class="warning-message warning-message-permanentWeight">       
           Разрешённая масса не может быть меньше Массы без нагрузки.
       </p>
           <div class="form-content__field">
-            <span class="form-content__field-text">Гос. номер и регион *</span>
+            <span class="form-content__field-text">Гос. номер и регион</span>
             <div class="form-content__field-wrap--gov">
-              <input pattern="(?:А|В|Е|К|М|Н|О|Р|С|Т|У|Х){6}" id="gosNum" maxlength="6" type="text" class="form-content__field-input form-content__field-input--govNum form-content__field-input--twentyFive" name="gosNum" placeholder="A000AA" value="" v-model="gosNum">
-              <input pattern="[0-9]{2,3}" id="region" maxlength="3" type="text" class="form-content__field-input form-content__field-input--region form-content__field-input--twentyFive" name="region" value="" placeholder="999" v-model="region">
+              <input id="gosNum" id="gosNum" maxlength="6" type="text" class="form-content__field-input form-content__field-input--govNum form-content__field-input--twentyFive" name="gosNum" placeholder="A000AA">
+              <input id="region" maxlength="3" type="text" class="form-content__field-input form-content__field-input--region form-content__field-input--twentyFive" name="region" placeholder="999">
             </div>
           </div>
           <div class="form-content__field-checkbox">
@@ -1205,25 +1205,210 @@
             <ul class="use__list">
             <span class="form-content__field-text"></span>
               <li class="use__item">
-                <input id="empty-fourth" type="checkbox" name="nothing4" class="form-content__terms--checkbox" v-model="nothing4">
+                <input id="empty-fourth" type="checkbox" name="nothing4" class="form-content__terms--checkbox">
                 <label for="empty-fourth" class="form-content__terms--text">Отсутствует</label>
               </li>
             </ul>
           </div>
           <p class="warning-message warning-message-gosNum">       
-          Используйте только русские буквы и цифры. Если Вы вписываете номер латинскими буквами, система не позволит Вам
-          перейти
-          на этап проверки введённых данных.
-          В номере могут использоваться только следующие буквы: А, В, Е, К, М, Н, О, Р, С, Т, У, Х
+          Государственный регистрационный знак (гос. Номер) состоит из русских букв, цифр и кода региона (например А001АА 177). Если происходит переоформление на другого собственника с дальнейшей сменой гос.номера, нажмите на кнопку «ОТСУТСТВУЕТ»
       </p>
           <div class="continue-button-block">
             <button id="next_three" class="continue-button continue-button--third =">Продолжить</button> 
           </div>
         </div>
-        
-        
         </fieldset>
+
         <fieldset>
+            <div class="form-content__fourth-step">
+          <h3 class="form-content__fourth-step--title">Ваши данные</h3>
+          <div class="check">
+            <div class="check_first-step">
+              <div class="check__title check_first-step__title">Ваши данные</div>
+              <div class="check-data check-data--first">
+                <ul class="check-data__list">
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Имя</div>
+                     <div class="check-data__item-content">
+                      <span id="checkName" class="check-data__item-content--text">{{ name }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Фамилия</div>
+                     <div class="check-data__item-content">
+                      <span id="checkSername" class="check-data__item-content--text">{{ sername }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Отчество</div>
+                     <div class="check-data__item-content">
+                      <span id="checkPatronymic" class="check-data__item-content--text">{{ patronymic }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Эл. почта</div>
+                     <div class="check-data__item-content">
+                      <span id="checkEmail" class="check-data__item-content--text">{{ email }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Телефон</div>
+                     <div class="check-data__item-content">
+                      <span id="checkPhone" class="check-data__item-content--text">{{ phone }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Населенный пункт</div>
+                     <div class="check-data__item-content">
+                      <span id="checkCity" class="check-data__item-content--text">{{ city }}</span>
+                    </div>
+                   </li>
+                 </ul>
+                 <button type="button" class="edit-button" id="stepDownOne">Редактировать</button>
+              </div>
+            </div>
+            <div class="check_second-step">
+              <div class="check__title check_second-step__title">Тип, состояние и назначение ТС</div>
+              <div class="check__data--second">
+                <ul class="check-data__list">
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Тип ТС</div>
+                     <div class="check-data__item-content">
+                      <span id="checkType" class="check-data__item-content--text">{{ type }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Марка</div>
+                     <div class="check-data__item-content">
+                      <span id="checkMark" class="check-data__item-content--text">{{ mark }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Модель</div>
+                     <div class="check-data__item-content">
+                      <span id="checkModel" class="check-data__item-content--text">{{ model }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Год выпуска</div>
+                     <div class="check-data__item-content">
+                      <span id="checkYear" class="check-data__item-content--text">{{ year }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Тип топлива</div>
+                     <div class="check-data__item-content">
+                      <span id="checkFuel" class="check-data__item-content--text">{{ fuel }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Тип тормозной системы</div>
+                     <div class="check-data__item-content">
+                      <span id="checkBreaks" class="check-data__item-content--text">{{ breaks }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Марка шин</div>
+                     <div class="check-data__item-content">
+                      <span id="checkTires" class="check-data__item-content--text">{{ tires }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Пробег</div>
+                     <div class="check-data__item-content">
+                      <span id="checkMilage" id="checkMilage" class="check-data__item-content--text"></span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Особое назначение ТС</div>
+                     <div class="check-data__item-content">
+                      <p id="checkUse1" class="check-data__item-content--text">Для личного пользования</p>
+                      <p id="checkUse2" class="check-data__item-content--text"></p>
+                      <p id="checkUse3" class="check-data__item-content--text"></p>
+                      <p id="checkUse4" class="check-data__item-content--text"></p>
+                    </div>
+                   </li>
+                 </ul>
+                 <button type="button" class="edit-button--second" id="stepDownTwo">Редактировать</button>
+              </div>
+            </div>
+            <div class="check_third-step">
+              <div class="check__title check_third-step__title">Документы ТС</div>
+              <div class="check__data--third">
+                <ul class="check-data__list">
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Тип документа</div>
+                     <div class="check-data__item-content">
+                      <span id="checkDocType" class="check-data__item-content--text">{{ docType }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Серия и<br>номер документа</div>
+                     <div class="check-data__item-content">
+                      <span id="checkDocNum" class="check-data__item-content--text">{{ docNumFirst }} {{ docNumSecond }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Кем выдан</div>
+                     <div class="check-data__item-content">
+                      <span id="checkPolice" class="check-data__item-content--text">{{ police }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Дата выдачи</div>
+                     <div class="check-data__item-content">
+                      <span id="checkDate" class="check-data__item-content--text">{{ docDay }}.{{ docMonth }}.{{ docYear }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">VIN-номер</div>
+                     <div class="check-data__item-content">
+                      <span id="checkVin" class="check-data__item-content--text"></span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Номер кузова</div>
+                     <div class="check-data__item-content">
+                      <span id="checkCarcass" class="check-data__item-content--text"></span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Номер рамы</div>
+                     <div class="check-data__item-content">
+                      <span id="checkFrame" class="check-data__item-content--text"></span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Масса без нагрузки</div>
+                     <div class="check-data__item-content">
+                      <span id="checkLoad" class="check-data__item-content--text">{{ loadWeight }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Разрешенная макс. масса</div>
+                     <div class="check-data__item-content">
+                      <span id="checkPerm" class="check-data__item-content--text">{{ permanentWeight }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
+                     <div class="check-data__item-title">Гос. номер и регион</div>
+                     <div class="check-data__item-content">
+                      <span id="checkGosNum" class="check-data__item-content--text"></span><span id="checkRegion"></span>
+                    </div>
+                   </li>
+                 </ul>
+                 <button type="button" class="edit-button--third" id="stepDownThree">Редактировать</button>
+              </div>
+              <div class="continue-button-block submitButton-block">
+                <button type="submit" id="next_four" class="continue-button continue-button--fourth submitButton">Оформить</button> 
+              </div>
+            </div>
+          </div>
+        </div>
+        </fieldset>
+
+      </div>
+    </div>
         <div class="request form-content__five-step">
           <div class="request-head"></div>
           <div class="request-content">
@@ -1239,195 +1424,6 @@
               </div>
               <div class="request-payment_info">
                 <p class="request-payment_info-text">Оплата производится через сервис Яндекс.Деньги по защищенному протоколу SSL. Мы не храним платежную информацию.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        </fieldset>
-      </div>
-    </div>
-
-<div class="form-content__fourth-step">
-          <h3 class="form-content__fourth-step--title">Ваши данные</h3>
-          <div class="check">
-            <div class="check_first-step">
-              <div class="check__title check_first-step__title">Ваши данные</div>
-              <div class="check-data check-data--first">
-                <ul class="check-data__list">
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Имя</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ name }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Фамилия</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ sername }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Отчество</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ patronymic }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Эл. почта</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ email }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Телефон</div>
-                     <div class="check-data__item-content">
-                      <span id="checkPhone" class="check-data__item-content--text">{{ phone }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Населенный пункт</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ city }}</span>
-                    </div>
-                   </li>
-                 </ul>
-                 <button class="edit-button" id="stepDownOne">Редактировать</button>
-              </div>
-            </div>
-            <div class="check_second-step">
-              <div class="check__title check_second-step__title">Тип, состояние и назначение ТС</div>
-              <div class="check__data--second">
-                <ul class="check-data__list">
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Тип ТС</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ type }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Марка</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ mark }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Модель</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ model }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Год выпуска</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ year }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Тип топлива</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ fuel }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Тип тормозной системы</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ breaks }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Марка шин</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ tires }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Пробег</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ milage }} км</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Особое назначение ТС</div>
-                     <div class="check-data__item-content">
-                      <p id="checkUse1" class="check-data__item-content--text">Для личного пользования</p>
-                      <p id="checkUse2" class="check-data__item-content--text"></p>
-                      <p id="checkUse3" class="check-data__item-content--text"></p>
-                      <p id="checkUse4" class="check-data__item-content--text"></p>
-                    </div>
-                   </li>
-                 </ul>
-                 <button class="edit-button--second" id="stepDownOne">Редактировать</button>
-              </div>
-            </div>
-            <div class="check_third-step">
-              <div class="check__title check_third-step__title">Документы ТС</div>
-              <div class="check__data--third">
-                <ul class="check-data__list">
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Тип документа</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ docType }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Серия и<br>номер документа</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ docNumFirst }} {{ docNumSecond }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Кем выдан</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ police }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Дата выдачи</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ docDay }}.{{ docMonth }}.{{ docYear }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">VIN-номер</div>
-                     <div class="check-data__item-content">
-                      <span id="checkVin" class="check-data__item-content--text">{{ vin }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Номер кузова</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ carcass }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Номер рамы</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ frame }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Масса без нагрузки</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ loadWeight }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Разрешенная макс. масса</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ permanentWeight }}</span>
-                    </div>
-                   </li>
-                   <li class="check-data__item">
-                     <div class="check-data__item-title">Гос. номер и регион</div>
-                     <div class="check-data__item-content">
-                      <span class="check-data__item-content--text">{{ gosNum }} {{ region }}</span>
-                    </div>
-                   </li>
-                 </ul>
-                 <button class="edit-button--third" id="stepDownOne">Редактировать</button>
-              </div>
-              <div class="continue-button-block">
-                <button type="submit" id="next_four" class="continue-button continue-button--fourth submitButton">Оформить</button> 
               </div>
             </div>
           </div>
