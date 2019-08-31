@@ -397,42 +397,7 @@ $(".form-content__field-input--one").focus(function() {
 	});
 
 
-	// $.ajax({
- //            url: '/form.php',
- //            data: {
- //                checkSername:checkSername,
- //                checkPatronymic:checkPatronymic,
- //                checkEmail:checkEmail,
- //                checkPhone:checkPhone,
- //                checkCity:checkCity,
- //                checkType:checkType,
- //                checkMark:checkMark,
- //                checkModel:checkModel,
- //                checkYear:checkYear,
- //                checkFuel:checkFuel,
- //                checkBreaks:checkBreaks,
- //                checkTires:checkTires,
- //                checkMilage:checkMilage,
- //                checkUse1:checkUse1,
- //                checkUse2:checkUse2,
- //                checkUse3:checkUse3,
- //                checkUse4:checkUse4,
- //                checkDocType:checkDocType,
- //                checkDocNum:checkDocNum,
- //                checkPolice:checkPolice,
- //                checkDate:checkDate,
- //                checkVin:checkVin,
- //                checkCarcass:checkCarcass,
- //                checkFrame:checkFrame,
- //                checkLoad:checkLoad,
- //                checkPerm:checkPerm,
- //                checkGosNum:checkGosNum,
- //            },
- //            type: "POST",
- //            success: function(data) {
- //                alert("Succes");
- //            }
- //        });
+	
 });
 
 $(function() {
