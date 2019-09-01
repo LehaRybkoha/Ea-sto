@@ -287,7 +287,7 @@
           <div class="form-content__field form-content__field-typeOfCar form-content__field-mark">
             <span class="form-content__field-text">Марка <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
-              <input id="mark" type="text" name="mark" class="form-content__field-input form-content__field-input--eight" v-model="mark">
+              <input id="mark" type="text" name="mark" class="form-content__field-input form-content__field-input--eight" placeholder="Марка (например KIA)" v-model="mark">
             </div>
           </div>
           <p class="warning-message warning-message-mark">         
@@ -296,7 +296,7 @@
           <div class="form-content__field form-content__field-typeOfCar form-content__field-model">
             <span class="form-content__field-text">Модель <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
-              <input id="model" type="text" name="model" class="form-content__field-input form-content__field-input--nine" v-model="model">
+              <input id="model" type="text" name="model" class="form-content__field-input form-content__field-input--nine" placeholder="Модель (например RIO)" v-model="model">
             </div>
           </div>
           <p class="warning-message warning-message-model">    
@@ -317,9 +317,9 @@
               <select name="fuel" id="fuel" class="form-content__field-input form-content__field-input--eleven" v-model="fuel">
                 <option value="Бензин">Бензин</option>
                 <option value="Дизельное топливо">Дизельное топливо</option>
-                <option value="Сжатый газ">Сжатый газ</option>
-                <option value="Сжиженный газ">Сжиженный газ</option>
-                <option value="Без топлива">Без топлива</option>
+                <option value="Сжатый газ">Сжатый газ (метан)</option>
+                <option value="Сжиженный газ">Сжиженный газ  (пропан)</option>
+                <option value="Без топлива">Без топлива (прицеп)</option>
               </select>
             </div>
           </div>
@@ -902,7 +902,7 @@
           <div class="form-content__field form-content__field-mileage form-content__field-mileage">
             <span class="form-content__field-text">Пробег (км) <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
-              <input id="milage" type="text" name="milage" class="form-content__field-input form-content__field-input--fourteen" placeholder="км" v-model="milage">
+              <input id="milage" type="text" name="milage" class="form-content__field-input form-content__field-input--fourteen" placeholder="Введите пробег (только цифры)" v-model="milage">
             </div>
           </div>
           <p class="warning-message warning-message-mileage">
@@ -930,7 +930,7 @@
           </ul>
         </div>
           <div class="continue-button-block">
-            <button id="next_two" class="continue-button continue-button--second">Продолжить</button> 
+            <button href="#header" id="next_two" class="continue-button continue-button--second">Продолжить</button> 
           </div>
         </div>
         </fieldset>
@@ -1408,7 +1408,6 @@
         </fieldset>
 
       </div>
-    </div>
         <div class="request form-content__five-step">
           <div class="request-head"></div>
           <div class="request-content">
@@ -1428,5 +1427,6 @@
             </div>
           </div>
         </div>
+    </div>
   </form>
 </div>

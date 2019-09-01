@@ -2,7 +2,8 @@ $(document).ready(function() {
   let $signupForm = $( '#form' );
   let form = $("#form");
   let empty = $("#emptyWeight");
-  let permanent = $("#permanentWeight"), timeOut;
+  let permanent = $("#permanentWeight"), weightTimeOut;
+  let milage = $("#milage"), milageTimeOut;
   let phone = $(".phone");
   phone.mask("+7(999)-999-99-99");
 
@@ -46,12 +47,12 @@ $(document).ready(function() {
   });
 
  permanent.keyup(function() {
- 	clearTimeout(timeOut);
- 	timeOut = setTimeout(weightFunc, 2000, $(this).val())
+ 	clearTimeout(weightTimeOut);
+ 	weightTimeOut = setTimeout(weightFunc, 2000, $(this).val())
  });
 
  permanent.keydown(function() {
- 	clearTimeout(timeOut);
+ 	clearTimeout(weightTimeOut);
  });
 
  function weightFunc() {
@@ -61,6 +62,22 @@ $(document).ready(function() {
  		alert("Масса без нагрузки должна быть меньше Разрешенной массы, пожалуйста, проверьте данные и введите их еще раз");
  	}
  }
+
+ // milage.keyup(function() {
+ // 	clearTimeout(milageTimeOut);
+ // 	milageTimeOut = setTimeout(milageFunc, 1000, $(this).val())
+ // });
+
+ // milage.keydown(function() {
+ // 	clearTimeout(milageTimeOut);
+ // });
+
+ // function milageFunc() {
+ // 	let milageVal = $("#milage").val();
+ // 	if (milageVal < 1000) {
+	// 	milageVal = 1000;
+	// }
+ // }
 
   $('#mark').keyup(function() {
     var replaceSpace = $(this).val(); 
@@ -82,10 +99,13 @@ $(document).ready(function() {
 
   $('#milage').keyup(function() {
     let milage = $(this).val();
-    milage = Math.round(milage / 1000) * 1000;
-    milage += " км";
         
     $("#milage").blur(function() {
+    	if (milage < 1000) {
+    		milage = 1000;
+    	} else {
+    		milage = Math.round(milage / 1000) * 1000;
+    	}
 		$("#milage").val(milage);
 		$("#checkMilage").html(milage);
 	});
@@ -95,12 +115,18 @@ $(document).ready(function() {
     let docNumfFirst = $(this).val();
     let result = docNumfFirst.replace(/[A-Za-z]/g, "");
         $("#docNum-first").val(result);
+        if (docNumFirst = /[A-Za-z]/g) {
+        	alert("Серия документа может содержать только РУССКИЕ буквы");
+        }
   });
 
   $('#docNum-second').keyup(function() {
     let docNumSecond = $(this).val();
     let result = docNumSecond.replace(/\D [^0-9]/g, "");
         $("#docNum-seclnd").val(result);
+        if (docNumFirst = /\D [^0-9]/g) {
+        	alert("Номер документа может содержать только ЦИФРЫ");
+        }
   });
 
   $('#vin').keyup(function() {
@@ -112,8 +138,8 @@ $(document).ready(function() {
     $("#vin").blur(function() {
   	if(vinLength < 16) {
     	$("#vin").val("");
-    	$("#vin").val("ОТСУТСВУЕТ");
-    	$('#checkVin').html("ОТСУТСВУЕТ");
+    	$("#vin").val("ОТСУТСТВУЕТ");
+    	$('#checkVin').html("ОТСУТСТВУЕТ");
     }
   	});
     if (vinLength === 17) {
@@ -165,6 +191,11 @@ $( "#stepDownThree" ).on( "click", function() {
 	$signupForm.formToWizard('GotoStep', '3');
 });
 
+$( ".form-content__field-input--fourteen" ).on( "click", function() {
+	alert("Пожалуйста, указывайте реальный пробег. В случае если вы не помните точное значение, то укажите примерное, но близкое к настоящему");
+	$( ".form-content__field-input--fourteen" ).off("click");
+});
+
 $( "#use-first" ).on( "click", function() {
 	if($(this).is(":checked")) {
 		var val = $('#label-use-first').attr('value');
@@ -204,8 +235,8 @@ $( "#use-fourth" ).on( "click", function() {
 $( "#empty-first" ).on( "change", function() {
 	if($(this).is(':checked')) {
 		$("#vin").val("");
-	    $("#vin").val("ОТСУТСВУЕТ");
-	    $('#checkVin').html("ОТСУТСВУЕТ");
+	    $("#vin").val("ОТСУТСТВУЕТ");
+	    $('#checkVin').html("ОТСУТСТВУЕТ");
   	}
     else {
     	$("#vin").val("");
@@ -224,8 +255,8 @@ $( "#asVin-first" ).on( "change", function() {
 $( "#empty-second" ).on( "change", function() {
 	if($(this).is(':checked')) {
 		$("#carcass").val("");
-	    $("#carcass").val("ОТСУТСВУЕТ");
-	    $('#checkCarcass').html("ОТСУТСВУЕТ");
+	    $("#carcass").val("ОТСУТСТВУЕТ");
+	    $('#checkCarcass').html("ОТСУТСТВУЕТ");
   	}
     else {
     	$("#carcass").val("");
@@ -234,8 +265,8 @@ $( "#empty-second" ).on( "change", function() {
 $( "#empty-third" ).on( "change", function() {
 	if($(this).is(':checked')) {
 		$("#frame").val("");
-	    $("#frame").val("ОТСУТСВУЕТ");
-	    $('#checkFrame').html("ОТСУТСВУЕТ");
+	    $("#frame").val("ОТСУТСТВУЕТ");
+	    $('#checkFrame').html("ОТСУТСТВУЕТ");
   	}
     else {
     	$("#frame").val("");
@@ -255,11 +286,14 @@ $( "#asVin-second" ).on( "change", function() {
 $( "#empty-fourth" ).on( "change", function() {
 	if($(this).is(':checked')) {
 		$("#gosNum, #region").val("");
-	    $("#gosNum, #region").val("ОТСУТСВУЕТ");
-	    $('#checkGosNum').html("ОТСУТСВУЕТ");
+	    $("#gosNum, #region").val("ОТСУТСТВУЕТ");
+	    $("#gosNum, #region").removeAttr("maxlength");
+	    $('#checkGosNum').html("ОТСУТСТВУЕТ");
   	}
     else {
     	$("#gosNum, #region").val("");
+    	$("#gosNum").attr("maxlength", "6");
+    	$("#region").attr("maxlength", "3");
    	}
 	});
 
@@ -395,44 +429,6 @@ $(".form-content__field-input--one").focus(function() {
 	$(".form-content__field-input--twentyFive").blur(function() {
 		$(".warning-message-gosNum").slideUp("slow");
 	});
-
-
-	// $.ajax({
- //            url: '/form.php',
- //            data: {
- //                checkSername:checkSername,
- //                checkPatronymic:checkPatronymic,
- //                checkEmail:checkEmail,
- //                checkPhone:checkPhone,
- //                checkCity:checkCity,
- //                checkType:checkType,
- //                checkMark:checkMark,
- //                checkModel:checkModel,
- //                checkYear:checkYear,
- //                checkFuel:checkFuel,
- //                checkBreaks:checkBreaks,
- //                checkTires:checkTires,
- //                checkMilage:checkMilage,
- //                checkUse1:checkUse1,
- //                checkUse2:checkUse2,
- //                checkUse3:checkUse3,
- //                checkUse4:checkUse4,
- //                checkDocType:checkDocType,
- //                checkDocNum:checkDocNum,
- //                checkPolice:checkPolice,
- //                checkDate:checkDate,
- //                checkVin:checkVin,
- //                checkCarcass:checkCarcass,
- //                checkFrame:checkFrame,
- //                checkLoad:checkLoad,
- //                checkPerm:checkPerm,
- //                checkGosNum:checkGosNum,
- //            },
- //            type: "POST",
- //            success: function(data) {
- //                alert("Succes");
- //            }
- //        });
 });
 
 $(function() {
@@ -501,6 +497,8 @@ $(function() {
             },
         }).done(function() {
           console.log('success');
+          $('.request').css('display', 'block');
+          $('.form-content, .form-head').css('display', 'none');
         }).fail(function() {
           console.log('fail');
         });
