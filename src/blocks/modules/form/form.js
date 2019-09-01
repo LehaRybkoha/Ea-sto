@@ -429,6 +429,12 @@ $(".form-content__field-input--one").focus(function() {
 	$(".form-content__field-input--twentyFive").blur(function() {
 		$(".warning-message-gosNum").slideUp("slow");
 	});
+<<<<<<< HEAD
+=======
+
+
+	
+>>>>>>> 407ac4d2929b5d8c20a8cab6564f09fbd004db1e
 });
 
 $(function() {
