@@ -141,16 +141,17 @@
 
         function createNextButton(i) {
             var stepName = 'step' + i;
+
             $('#' + stepName + 'commands').append(
                 '<' + options.buttonTag + ' href="#" id="' + stepName + 'Next" class="' + options.nextBtnClass + '">' +
                 options.nextBtnName +
                 '</' + options.buttonTag + '>');
 
             $("#" + stepName + "Next").bind( "click", function(e) {
+
                 if( options.validateBeforeNext(element, $("#" + stepName)) === true ) {
-                    $("#" + stepName).hide();
+                    $("#" + stepName).hide('#form');
                     $("#step" + (i + 1)).show();
-                    //if (i + 2 == count)
                     selectStep(i + 1);
                 }
 

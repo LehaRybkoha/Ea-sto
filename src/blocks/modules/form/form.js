@@ -34,7 +34,7 @@ $(document).ready(function() {
     nextBtnClass: 'continue-button',
     nextBtnName: 'Продолжить',
     submitButtonName: 'Оформить',
-    buttonTag:    'button',
+    buttonTag:    'a href="#form"',
     validateBeforeNext: function(form, step) {
       let stepIsValid = true;
       let validator = form.validate();
@@ -62,6 +62,11 @@ $(document).ready(function() {
  		alert("Масса без нагрузки должна быть меньше Разрешенной массы, пожалуйста, проверьте данные и введите их еще раз");
  	}
  }
+
+$("#step0next, #step1next, #step2next").on( "click", function() {
+	$("#step0next, #step1next, #step2next").window.scrollTo('#form');
+});
+
 
  // milage.keyup(function() {
  // 	clearTimeout(milageTimeOut);
@@ -429,12 +434,6 @@ $(".form-content__field-input--one").focus(function() {
 	$(".form-content__field-input--twentyFive").blur(function() {
 		$(".warning-message-gosNum").slideUp("slow");
 	});
-<<<<<<< HEAD
-=======
-
-
-	
->>>>>>> 407ac4d2929b5d8c20a8cab6564f09fbd004db1e
 });
 
 $(function() {
