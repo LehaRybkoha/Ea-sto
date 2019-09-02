@@ -4,8 +4,8 @@ const webpack = require("webpack");
 module.exports = {
     entry: {
         main: "./src/js/index.js",
+        jquery: "./src/js/import/jquery/jquery.js",
         jquerySteps: "./src/js/import/jquerySteps/jquerySteps.js",
-        // additionalMethods: "src/js/import/additionalMethods/additionalMethods.js"
     },
     
     output: {

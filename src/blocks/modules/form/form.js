@@ -1,6 +1,3 @@
-import $ from 'jquery'; 
-window.jQuery = $; 
-import 'jquery.steps';
 import 'jquery-validation';
 import 'jquery-mask-plugin';
 import Vue from 'vue';
@@ -41,7 +38,7 @@ $(document).ready(function() {
     nextBtnClass: 'continue-button',
     nextBtnName: 'Продолжить',
     submitButtonName: 'Оформить',
-    buttonTag:    'button href="#form"',
+    buttonTag:    'a href="#form"',
     validateBeforeNext: function(form, step) {
       let stepIsValid = true;
       let validator = form.validate();
