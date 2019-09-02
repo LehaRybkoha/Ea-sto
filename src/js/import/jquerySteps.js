@@ -150,7 +150,7 @@
             $("#" + stepName + "Next").bind( "click", function(e) {
 
                 if( options.validateBeforeNext(element, $("#" + stepName)) === true ) {
-                    $("#" + stepName).hide('#form');
+                    $("#" + stepName).hide();
                     $("#step" + (i + 1)).show();
                     selectStep(i + 1);
                 }

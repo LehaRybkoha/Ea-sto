@@ -63,27 +63,6 @@ $(document).ready(function() {
  	}
  }
 
-$("#step0next, #step1next, #step2next").on( "click", function() {
-	$("#step0next, #step1next, #step2next").window.scrollTo('#form');
-});
-
-
- // milage.keyup(function() {
- // 	clearTimeout(milageTimeOut);
- // 	milageTimeOut = setTimeout(milageFunc, 1000, $(this).val())
- // });
-
- // milage.keydown(function() {
- // 	clearTimeout(milageTimeOut);
- // });
-
- // function milageFunc() {
- // 	let milageVal = $("#milage").val();
- // 	if (milageVal < 1000) {
-	// 	milageVal = 1000;
-	// }
- // }
-
   $('#mark').keyup(function() {
     var replaceSpace = $(this).val(); 
 
@@ -102,36 +81,51 @@ $("#step0next, #step1next, #step2next").on( "click", function() {
 
   });
 
-  $('#milage').keyup(function() {
-    let milage = $(this).val();
+ //  $('#milage').keyup(function() {
+ //    let milage = $(this).val();
         
-    $("#milage").blur(function() {
-    	if (milage < 1000) {
-    		milage = 1000;
-    	} else {
-    		milage = Math.round(milage / 1000) * 1000;
-    	}
-		$("#milage").val(milage);
-		$("#checkMilage").html(milage);
-	});
-  });
+ //    $("#milage").blur(function() {
+ //    	if (milage < 1000) {
+ //    		milage = 1000;
+ //    	} else {
+ //    		milage = Math.round(milage / 1000) * 1000;
+ //    	}
+	// 	$("#milage").val(milage);
+	// 	$("#checkMilage").html(milage);
+	// });
+ //  });
 
   $('#docNum-first').keyup(function() {
-    let docNumfFirst = $(this).val();
-    let result = docNumfFirst.replace(/[A-Za-z]/g, "");
+    let docNumFirst = $(this).val();
+    let result = docNumFirst.replace(/[A-Za-z]/g, "");
         $("#docNum-first").val(result);
-        if (docNumFirst = /[A-Za-z]/g) {
-        	alert("Серия документа может содержать только РУССКИЕ буквы");
-        }
   });
 
   $('#docNum-second').keyup(function() {
     let docNumSecond = $(this).val();
-    let result = docNumSecond.replace(/\D [^0-9]/g, "");
-        $("#docNum-seclnd").val(result);
-        if (docNumFirst = /\D [^0-9]/g) {
+    let result = docNumSecond.replace(/[A-Za-zА-Яа-яЁё]/g, "");
+        if (docNumSecond === /[A-Za-zА-Яа-яЁё]/) {
         	alert("Номер документа может содержать только ЦИФРЫ");
+        	$("#docNum-second").val("");
         }
+        $("#docNum-second").val(result);
+  });
+  $('#docNum-second').keydown(function() {
+  	let docNumSecondVal = $(this).val();
+  	if (docNumSecondVal = /[A-Za-zА-Яа-яЁё]/) {
+        alert("Номер документа может содержать только ЦИФРЫ");
+        $("#docNum-second").val("");
+        $('#docNum-second').off('keydown');
+    }
+  });
+
+  $('#docNum-first').keydown(function() {
+  	let docNumfirstVal = $(this).val();
+  	if (docNumfirstVal = /[A-Za-z]/) {
+        alert("Номер документа может содержать только РУССКИЕ буквы");
+        $("#docNum-first").val("");
+        $('#docNum-first').off('keydown');
+    }
   });
 
   $('#vin').keyup(function() {
@@ -170,7 +164,7 @@ $("#step0next, #step1next, #step2next").on( "click", function() {
 
   $('#gosNum').keyup(function() {
     let gosNum = $(this).val();
-    let result = gosNum.replace(/[A-Za-zа-яЁе]/g, "");
+    let result = gosNum.replace(/[A-Za-z]/g, "");
     $("#gosNum").val(result);
     $("#checkGosNum").html(gosNum);
  });
@@ -194,11 +188,6 @@ $( "#stepDownTwo" ).on( "click", function() {
 });
 $( "#stepDownThree" ).on( "click", function() {
 	$signupForm.formToWizard('GotoStep', '3');
-});
-
-$( ".form-content__field-input--fourteen" ).on( "click", function() {
-	alert("Пожалуйста, указывайте реальный пробег. В случае если вы не помните точное значение, то укажите примерное, но близкое к настоящему");
-	$( ".form-content__field-input--fourteen" ).off("click");
 });
 
 $( "#use-first" ).on( "click", function() {

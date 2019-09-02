@@ -3,7 +3,7 @@
 	background-attachment: fixed;
 	background-position: 50%;
     background-repeat: no-repeat;
-    background-image: url('/img/price-bg.webp');
+    background-image: url('/img/price-bg.png');
 	&-wrapper {
 		width: rem(600px);
 		margin: 0 auto;
@@ -36,7 +36,7 @@
 				content: '';
 			    width: 15px;
 			    height: 15px;
-			    background: url('/img/ok_circle.webp');
+			    background: url('/img/ok_circle.png');
 			    background-size: contain;
 			    background-repeat: no-repeat;
 			    display: block;

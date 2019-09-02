@@ -5,6 +5,9 @@
 	&-wrap {
 		align-items: center;
 		padding: rem(10px) 0 rem(10px);
+		&-sm {
+			flex-direction: column;
+		}
 	}
 }
 .header-xl {
@@ -15,6 +18,7 @@
 	display: none;
 	@include md(display, flex);
 	align-center: center;
+	justify-content: center;
 }
 .support {
 	@include align-center;
@@ -59,6 +63,7 @@
 		padding: 0 rem(15px);
 		border-right: 1px solid #BAB9B6;
 		@include md(border-right, none);  
+		@include sm(height, rem(30px));  
 	}
 	&-link {
 		&:hover {
@@ -92,7 +97,12 @@
     padding: 4px;
     font-family: 'Open Sans', 'Arial', 'sans-serif' !important;
     z-index: 1;
-    background-color: #fff;
-    @include sm(max-width, 80%);
+    background-color: #fff !important;
+  	background-color: rgb(255,255,255) !important;
+  	background-color: rgba(255,255,255,0.5) !important;
+  	-moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    @include sm(max-width, 100%);
     @include lg(max-width, 45%);
 }
