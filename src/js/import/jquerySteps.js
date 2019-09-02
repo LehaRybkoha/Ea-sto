@@ -112,9 +112,7 @@
                     }
                 },
                 NextStep: function() {
-                    $( '.stepDetails:visible' ).find( 'a.next' ).click(function() {
-                        window.scrollTo({top: 1000});
-                    });
+                    $( '.stepDetails:visible' ).find( 'a.next' ).click();
                 },
                 PreviousStep: function() {
                     $( '.stepDetails:visible' ).find( 'a.prev' ).click();
@@ -155,7 +153,7 @@
                     $("#" + stepName).hide();
                     $("#step" + (i + 1)).show();
                     selectStep(i + 1);
-                    window.scrollTo("form");
+                    ("#" + stepName + "Next").window.scrollTo('#form');
                 }
 
                 return false;

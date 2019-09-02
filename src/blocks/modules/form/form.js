@@ -11,7 +11,6 @@ $(document).ready(function() {
   let phone = $(".phone");
   phone.mask("+7(999)-999-99-99");
 
-
 	$signupForm.validate({
   	rules: {
  		sername:"required",
@@ -98,43 +97,43 @@ $(document).ready(function() {
 	// });
  //  });
 
-  $('#docNum-first').keyup(function() {
-    let docNumFirst = $(this).val();
-    let result = docNumFirst.replace(/[A-Za-z]/g, "");
-        $("#docNum-first").val(result);
-  });
+  // $('#docNum-first').keyup(function() {
+  //   let docNumFirst = $(this).val();
+  //   let result = docNumFirst.replace(/[A-Za-z]/g, "");
+  //       $("#docNum-first").val(result);
+  // });
 
-  $('#docNum-second').keyup(function() {
-    let docNumSecond = $(this).val();
-    let result = docNumSecond.replace(/[A-Za-zА-Яа-яЁё]/g, "");
-        if (docNumSecond === /[A-Za-zА-Яа-яЁё]/) {
-        	alert("Номер документа может содержать только ЦИФРЫ");
-        	$("#docNum-second").val("");
-        }
-        $("#docNum-second").val(result);
-  });
-  $('#docNum-second').keydown(function() {
-  	let docNumSecondVal = $(this).val();
-  	if (docNumSecondVal = /[A-Za-zА-Яа-яЁё]/) {
-        alert("Номер документа может содержать только ЦИФРЫ");
-        $("#docNum-second").val("");
-        $('#docNum-second').off('keydown');
-    }
-  });
+  // $('#docNum-second').keyup(function() {
+  //   let docNumSecond = $(this).val();
+  //   let result = docNumSecond.replace(/[A-Za-zА-Яа-яЁё]/g, "");
+  //       if (docNumSecond === /[A-Za-zА-Яа-яЁё]/) {
+  //       	alert("Номер документа может содержать только ЦИФРЫ");
+  //       	$("#docNum-second").val("");
+  //       }
+  //       $("#docNum-second").val(result);
+  // });
+  // $('#docNum-second').keydown(function() {
+  // 	let docNumSecondVal = $(this).val();
+  // 	if (docNumSecondVal = /[A-Za-zА-Яа-яЁё]/) {
+  //       alert("Номер документа может содержать только ЦИФРЫ");
+  //       $("#docNum-second").val("");
+  //       $('#docNum-second').off('keydown');
+  //   }
+  // });
 
-  $('#docNum-first').keydown(function() {
-  	let docNumfirstVal = $(this).val();
-  	if (docNumfirstVal = /[A-Za-z]/) {
-        alert("Номер документа может содержать только РУССКИЕ буквы");
-        $("#docNum-first").val("");
-        $('#docNum-first').off('keydown');
-    }
-  });
+  // $('#docNum-first').keydown(function() {
+  // 	let docNumfirstVal = $(this).val();
+  // 	if (docNumfirstVal = /[A-Za-z]/) {
+  //       alert("Номер документа может содержать только РУССКИЕ буквы");
+  //       $("#docNum-first").val("");
+  //       $('#docNum-first').off('keydown');
+  //   }
+  // });
 
   $('#vin').keyup(function() {
   	let vinLength = $(this).val().length;
   	let vin = $(this).val();
-    let result = vin.replace(/[А-Яа-яЁе]/g, "").replace(/[0]/g, "O");
+    let result = vin.replace(/[0]/g, "O");
     $("#vin").val(result);
     $("#checkVin").val(vin);
     $("#vin").blur(function() {
@@ -153,29 +152,21 @@ $(document).ready(function() {
 
  $('#carcass').keyup(function() {
     let carcass = $(this).val();
-    let result = carcass.replace(/[А-Яа-яЁе]/g, "");
-    $("#carcass").val(result);
     $("#checkCarcass").html(carcass);
  });
 
  $('#frame').keyup(function() {
     let frame = $(this).val();
-    let result = frame.replace(/[А-Яа-яЁе]/g, "");
-    $("#frame").val(result);
     $("#checkFrame").html(frame);
  });
 
   $('#gosNum').keyup(function() {
     let gosNum = $(this).val();
-    let result = gosNum.replace(/[A-Za-z]/g, "");
-    $("#gosNum").val(result);
     $("#checkGosNum").html(gosNum);
  });
 
   $('#region').keyup(function() {
     let region = $(this).val();
-    let result = region.replace(/[A-Za-zА-Яа-яЁё]/g, "");
-    $("#region").val(result);
     $("#checkRegion").html(region);
  });
   $('.phone').keyup(function() {
@@ -192,9 +183,6 @@ $( "#stepDownTwo" ).on( "click", function() {
 $( "#stepDownThree" ).on( "click", function() {
 	$signupForm.formToWizard('GotoStep', '3');
 });
-// $( "#step0Next" ).click(function (){
-// 	$("#step0Next").scrollTo('#form');
-// });
 
 $( "#use-first" ).on( "click", function() {
 	if($(this).is(":checked")) {
@@ -499,6 +487,9 @@ $(function() {
           console.log('success');
           $('.request').css('display', 'block');
           $('.form-content, .form-head').css('display', 'none');
+ 		  $('body').scrollTop(5000);
+ 		  	const el = document.getElementById('form');
+			el.scrollIntoView(); // Прокрутка до верхней границы
         }).fail(function() {
           console.log('fail');
         });

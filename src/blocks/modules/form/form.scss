@@ -11,6 +11,16 @@
 		padding: 24px;
 		margin-bottom: rem(38px);
 		border-radius: 6px 6px 0 0;
+		display: flex;
+		position: relative;
+		overflow: hidden;
+		&--pic {
+			max-height: rem(147px);
+			position: absolute;
+			right: rem(-47px);
+			top: rem(-35px);
+			@include md(display, none);
+		}
 		&-text {
 			font-family: $font-family-mont;
 			color: #fff;
