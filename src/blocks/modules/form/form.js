@@ -1,9 +1,16 @@
+import $ from 'jquery'; 
+window.jQuery = $; 
+import 'jquery.steps';
+import 'jquery-validation';
+import 'jquery-mask-plugin';
+import Vue from 'vue';
+
+
 $(document).ready(function() {
   let $signupForm = $( '#form' );
   let form = $("#form");
   let empty = $("#emptyWeight");
   let permanent = $("#permanentWeight"), weightTimeOut;
-  let milage = $("#milage"), milageTimeOut;
   let phone = $(".phone");
   phone.mask("+7(999)-999-99-99");
 
@@ -34,7 +41,7 @@ $(document).ready(function() {
     nextBtnClass: 'continue-button',
     nextBtnName: 'Продолжить',
     submitButtonName: 'Оформить',
-    buttonTag:    'a href="#form"',
+    buttonTag:    'button href="#form"',
     validateBeforeNext: function(form, step) {
       let stepIsValid = true;
       let validator = form.validate();
@@ -45,7 +52,6 @@ $(document).ready(function() {
       return stepIsValid;
     }
   });
-
  permanent.keyup(function() {
  	clearTimeout(weightTimeOut);
  	weightTimeOut = setTimeout(weightFunc, 2000, $(this).val())
@@ -189,6 +195,9 @@ $( "#stepDownTwo" ).on( "click", function() {
 $( "#stepDownThree" ).on( "click", function() {
 	$signupForm.formToWizard('GotoStep', '3');
 });
+// $( "#step0Next" ).click(function (){
+// 	$("#step0Next").scrollTo('#form');
+// });
 
 $( "#use-first" ).on( "click", function() {
 	if($(this).is(":checked")) {

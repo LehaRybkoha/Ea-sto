@@ -1,3 +1,6 @@
+import $ from 'jquery'; 
+window.jQuery = $; 
+
 $(function(){
   $('a[href^="#"]').on('click', function(event) {
     // отменяем стандартное действие

@@ -100,9 +100,6 @@
     background-color: #fff !important;
   	background-color: rgb(255,255,255) !important;
   	background-color: rgba(255,255,255,0.5) !important;
-  	-moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
     @include sm(max-width, 100%);
     @include lg(max-width, 45%);
 }
