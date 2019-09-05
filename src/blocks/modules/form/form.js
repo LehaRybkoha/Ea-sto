@@ -136,18 +136,6 @@ $(document).ready(function() {
     let result = vin.replace(/[0]/g, "O");
     $("#vin").val(result);
     $("#checkVin").val(vin);
-    $("#vin").blur(function() {
-  	if(vinLength < 16) {
-    	$("#vin").val("");
-    	$("#vin").val("ОТСУТСТВУЕТ");
-    	$('#checkVin').html("ОТСУТСТВУЕТ");
-    }
-  	});
-    if (vinLength === 17) {
-		$('#vin').unbind("blur");
-		$('#checkVin').html("");
-		$('#checkVin').html(vin);
-	}
  });
 
  $('#carcass').keyup(function() {
