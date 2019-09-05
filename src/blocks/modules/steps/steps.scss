@@ -2,7 +2,7 @@
 	@include align-center;
 	background-image: url('/img/steps-bg.webp');
 	&-content {
-		margin: rem(36px) 0 rem(36px);
+		padding: rem(36px) 0 rem(36px);
 		&__item {
 			@include align-center;
 			flex-direction: row;
@@ -26,4 +26,8 @@
 			}
 		}
 	}
+}
+
+.steps-section {
+	display: block!important;
 }
