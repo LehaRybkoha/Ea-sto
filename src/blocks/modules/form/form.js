@@ -6,8 +6,8 @@ import Vue from 'vue';
 $(document).ready(function() {
   let $signupForm = $( '#form' );
   let form = $("#form");
-  let empty = $("#emptyWeight");
-  let permanent = $("#permanentWeight"), weightTimeOut;
+  // let empty = $("#emptyWeight");
+  // let permanent = $("#permanentWeight"), weightTimeOut;
   let phone = $(".phone");
   phone.mask("+7(999)-999-99-99");
 
@@ -48,22 +48,22 @@ $(document).ready(function() {
       return stepIsValid;
     }
   });
- permanent.keyup(function() {
- 	clearTimeout(weightTimeOut);
- 	weightTimeOut = setTimeout(weightFunc, 2000, $(this).val())
- });
+ // permanent.keyup(function() {
+ // 	clearTimeout(weightTimeOut);
+ // 	weightTimeOut = setTimeout(weightFunc, 2000, $(this).val())
+ // });
 
- permanent.keydown(function() {
- 	clearTimeout(weightTimeOut);
- });
+ // permanent.keydown(function() {
+ // 	clearTimeout(weightTimeOut);
+ // });
 
- function weightFunc() {
- 	if(empty.val() > permanent.val()) {
- 		permanent.addClass('error')
- 		permanent.val("");
- 		alert("Масса без нагрузки должна быть меньше Разрешенной массы, пожалуйста, проверьте данные и введите их еще раз");
- 	}
- }
+ // function weightFunc() {
+ // 	if(empty.val() > permanent.val()) {
+ // 		permanent.addClass('error')
+ // 		permanent.val("");
+ // 		alert("Разрешенная масса должна быть больше Массы без нагрузки, пожалуйста, проверьте данные и введите их еще раз.");
+ // 	}
+ // }
 
   $('#mark').keyup(function() {
     var replaceSpace = $(this).val(); 
@@ -97,66 +97,86 @@ $(document).ready(function() {
 	// });
  //  });
 
-  // $('#docNum-first').keyup(function() {
-  //   let docNumFirst = $(this).val();
-  //   let result = docNumFirst.replace(/[A-Za-z]/g, "");
-  //       $("#docNum-first").val(result);
-  // });
+  $('#docNum-first').keyup(function() {
+    let docNumFirst = $(this).val();
+    let re = /[A-Za-z]/;
+    if (this.value.match(re)) {
+    	let result = this.value.replace(/[A-Za-z]/g, "");
+    	$('#docNum-first').val(result);
+    	alert("Серия документа может содержать только РУССКИЕ буквы и цифры (4 символа). Проверьте, что раскладка клавиатуры установлена на русском языке и повторите ввод.");
+    }
+    $('#docNum-first').val(result);
+    $("#checkDocNumFirst").html(docNumFirst);
+  });
 
-  // $('#docNum-second').keyup(function() {
-  //   let docNumSecond = $(this).val();
-  //   let result = docNumSecond.replace(/[A-Za-zА-Яа-яЁё]/g, "");
-  //       if (docNumSecond === /[A-Za-zА-Яа-яЁё]/) {
-  //       	alert("Номер документа может содержать только ЦИФРЫ");
-  //       	$("#docNum-second").val("");
-  //       }
-  //       $("#docNum-second").val(result);
-  // });
-  // $('#docNum-second').keydown(function() {
-  // 	let docNumSecondVal = $(this).val();
-  // 	if (docNumSecondVal = /[A-Za-zА-Яа-яЁё]/) {
-  //       alert("Номер документа может содержать только ЦИФРЫ");
-  //       $("#docNum-second").val("");
-  //       $('#docNum-second').off('keydown');
-  //   }
-  // });
-
-  // $('#docNum-first').keydown(function() {
-  // 	let docNumfirstVal = $(this).val();
-  // 	if (docNumfirstVal = /[A-Za-z]/) {
-  //       alert("Номер документа может содержать только РУССКИЕ буквы");
-  //       $("#docNum-first").val("");
-  //       $('#docNum-first').off('keydown');
-  //   }
-  // });
-
-  $('#vin').keyup(function() {
-  	let vinLength = $(this).val().length;
+  $('#docNum-second').keyup(function() {
+    let docNumSecond = $(this).val();
+    let re = /[A-Za-zА-Яа-яЁё]/;
+    if (this.value.match(re)) {
+    	let result = this.value.replace(/[A-Za-zА-Яа-яЁё]/g, "");
+    	$('#docNum-second').val(result);
+    	alert("Номер документа может содержать только 6 цифр. Пожалуйста, не вводите буквы.");
+    }
+    $('#docNum-second').val(result);
+    $("#checkDocNumSecond").html(docNumSecond);
+  });
+  $('#vin').on("keyup keydown", function() {
   	let vin = $(this).val();
-    let result = vin.replace(/[0]/g, "O");
-    $("#vin").val(result);
-    $("#checkVin").val(vin);
+  	let re = /[,.-/QqIiOoА-Яа-яЁё]/;
+  	let result;
+    if (this.value.match(re)) {
+    	result = this.value.replace(/[,.-/QqIiOoА-Яа-яЁё]/g, "");
+    	$('#vin').val(result);
+    	alert("VIN-номер может содержать только АНГЛИЙСКИЕ буквы, цифры и знаки. Проверьте, что раскладка клавиатуры установлена на английском языке. Также в VIN-номере невозможно использование английских букв O, Q, I. Вместо них, пожалуйста, используйте цифры 0, 1 и повторите ввод.");
+    }
+    $("#checkVin").html(vin);
  });
 
  $('#carcass').keyup(function() {
     let carcass = $(this).val();
+    let re = /[^0-9A-Za-z-/ ,]/;
+    let result;
+    if (this.value.match(re)) {
+    	result = this.value.replace(/[^0-9A-Za-z-/ ,]/g, "");
+    	$('#carcass').val(result);
+    	alert("Номер кузова может содержать только АНГЛИЙСКИЕ буквы, цифры и знаки. Проверьте, что раскладка клавиатуры установлена на английском языке и повторите ввод.");
+    }
     $("#checkCarcass").html(carcass);
  });
 
  $('#frame').keyup(function() {
     let frame = $(this).val();
+    let re = /[^0-9A-Za-z-/ ,]/;
+    let resultж
+    if (this.value.match(re)) {
+    	result = this.value.replace(/[^0-9A-Za-z-/ ,]/g, "");
+    	$('#frame').val(result);
+    	alert("Номер шасси может содержать только АНГЛИЙСКИЕ буквы, цифры и знаки. Проверьте, что раскладка клавиатуры установлена на английском языке и повторите ввод.Номер кузова может содержать только АНГЛИЙСКИЕ буквы, цифры и знаки. Проверьте, что раскладка клавиатуры установлена на английском языке и повторите ввод.");
+    }
     $("#checkFrame").html(frame);
  });
 
   $('#gosNum').keyup(function() {
     let gosNum = $(this).val();
-    $("#checkGosNum").html(gosNum);
+    let re = /[A-Za-z]/;
+    let result;
+    if (this.value.match(re)) {
+    	result = this.value.replace(/[A-Za-z]]/g, "");
+    	$('#gosNum').val(result);
+    	alert("Государственный регистрационный номер может содержать только РУССКИЕ буквы и цифры. Проверьте, что раскладка клавиатуры установлена на русском языке и повторите ввод.");
+    }
+    $("#checkGosNum").val(gosNum);
  });
 
   $('#region').keyup(function() {
     let region = $(this).val();
+    let result = region.replace(/[^0-9]/g, function() {
+    	alert("Регион гос. номера может содержать только 2 или 3 цифры. Повторите ввод.");
+    	$("#region").val("");
+    });
     $("#checkRegion").html(region);
  });
+
   $('.phone').keyup(function() {
    let val = $('.phone').val();
    $('#checkPhone').html(val);
@@ -272,6 +292,10 @@ $( "#empty-fourth" ).on( "change", function() {
     	$("#region").attr("maxlength", "3");
    	}
 	});
+
+$('.form-content__use--checkbox').change(function() {
+  $('.form-content__use--checkbox').not(this).prop('checked', false);
+})
 
 $(".form-content__field-input--one").focus(function() {
 		$(".warning-message-sername").slideDown("slow");
@@ -474,7 +498,8 @@ $(function() {
         }).done(function() {
           console.log('success');
           $('.request').css('display', 'block');
-          $('.form-content, .form-head').css('display', 'none');
+          $('.form-section').css('height', '90vh');
+          $('.form-content, .form-head, .about, .steps-section, .advantage, .card-section, .price, .question, .video, .reviews, .partners, .footer').css('display', 'none');
  		  $('body').scrollTop(5000);
  		  	const el = document.getElementById('form');
 			el.scrollIntoView(); // Прокрутка до верхней границы

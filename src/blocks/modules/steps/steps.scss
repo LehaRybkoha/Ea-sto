@@ -1,6 +1,4 @@
 .steps {
-	@include align-center;
-	background-image: url('/img/steps-bg.webp');
 	&-content {
 		padding: rem(36px) 0 rem(36px);
 		&__item {
@@ -29,5 +27,6 @@
 }
 
 .steps-section {
-	display: block!important;
+	@include align-center;
+	background-image: url('/img/steps-bg.webp');
 }
