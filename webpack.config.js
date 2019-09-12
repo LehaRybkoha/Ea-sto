@@ -1,8 +1,11 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
     entry: {
-        main: "./src/js/index.js"
+        main: "./src/js/index.js",
+        jquery: "./src/js/import/jquery/jquery.js",
+        jquerySteps: "./src/js/import/jquerySteps/jquerySteps.js",
     },
     
     output: {
@@ -22,13 +25,29 @@ module.exports = {
                         ]
                     }
                 }
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
             }
-        ]
+        ],
     },
+
+    plugins: [
+        new webpack.ProvidePlugin({
+         $: 'jquery',
+        '$': 'jquery',
+        jquery: 'jquery',
+        jQuery: 'jquery',
+      }),
+    ],
+    
 
     resolve: {
         alias: {
-            "%modules%": path.resolve(__dirname, "src/blocks/modules")
-        }
+            "%modules%": path.resolve(__dirname, "src/blocks/modules"),
+            'vue$': 'vue/dist/vue.esm.js'
+        },
+        extensions: ['*', '.js', '.vue', '.json']
     }
 };

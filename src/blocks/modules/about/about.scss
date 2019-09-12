@@ -1,0 +1,57 @@
+.about {
+	min-height: rem(360px);
+	background: url('/img/about-bg.jpg') 50% 50% no-repeat;
+	@include align-center;
+	justify-content: center;
+	&-wrapper {
+		margin: rem(50px) 0 rem(50px);
+	}
+	&-content {
+		flex-direction: column;
+		&__title-text, &__title-desc {
+			font-family: $font-family-mont;
+			color: #fff;
+			text-align: center;
+		}
+		&__title-text {
+			font-weight: 700;
+			font-size: rem(42px);
+			@include md(font-size, rem(30px));  
+		}
+		&__title-desc {
+			font-weight: 400;
+			font-size: rem(22px);
+			margin: rem(30px) 0 rem(50px) 0;
+			@include md(font-size, rem(20px));  
+		}
+		&__button {
+			text-align: center;
+			&-link {
+				font-size: rem(17px);
+				padding: rem(11px) rem(15px);
+				border: 1px solid $violet-color;
+				background-color: $violet-color;
+				border-radius: 7px;
+				text-transform: uppercase;
+				transition: all 0.3s ease;
+				font-family: $font-family-open;
+				color: #fff;
+				@include md(font-size, rem(15px));  
+				&:hover {
+					color: #fff;
+					background-color: #4646c7;
+					border: 1px solid #4646c7;
+				}
+			}
+		}
+	}
+}
+
+.selected {
+	font-family: $font-family-mont;
+	color: #fff;
+	text-align: center;
+	font-weight: 500;
+	font-size: rem(30px);
+	@include md(font-size, rem(20px)); 
+}

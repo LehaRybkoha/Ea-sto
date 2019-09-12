@@ -1,0 +1,98 @@
+.price {
+	padding: rem(50px) 0 rem(86px) 0;
+	background-attachment: fixed;
+	background-position: 50%;
+    background-repeat: no-repeat;
+    background-image: url('/img/price-bg.png');
+	&-wrapper {
+		width: rem(600px);
+		margin: 0 auto;
+		background: rgba(255, 255, 255, 0.8);
+    	box-shadow: 0 4px 14px 0 rgba(166,166,166,.5);
+    	border-radius: 8px;
+    	@include md(width, 90%);
+	}
+	&-content {
+		margin-top: rem(36px);
+		&__title {
+			padding-top: rem(20px);
+			&-text {
+				font-family: $font-family-mont;
+				font-size: rem(42px);
+				line-height: 150%;
+				text-transform: uppercase;
+				font-weight: 300;
+				text-align: center;
+				color: $grey-color;
+				@include md(font-size, rem(30px));
+			}
+		}
+		&__list {
+			margin-bottom: rem(20px) !important;
+		}
+		&__item {
+			padding: 0 0 rem(10px) rem(48px);
+			&::before {
+				content: '';
+			    width: 15px;
+			    height: 15px;
+			    background: url('/img/ok_circle.png');
+			    background-size: contain;
+			    background-repeat: no-repeat;
+			    display: block;
+			    position: absolute;
+			    margin: rem(7px) 0 0 rem(-25px);
+			}
+			&-text {
+				font-family: $font-family-open;
+				color: $grey-color;
+				font-size: rem(17px); 
+			}
+		}
+		&__desc {
+			max-width: rem(450px);
+			margin: rem(45px) auto rem(20px) auto;
+			&-price {
+				&--text {
+					font-family: $font-family-mont;
+					font-size: rem(22px);
+					color: $grey-color;
+					font-weight: 300;
+					margin-bottom: rem(10px);
+					text-align: center;
+				}
+			}
+		}
+		&__button {
+			text-align: center;
+			margin-bottom: rem(20px);
+			&-link {
+				font-size: rem(17px);
+				padding: rem(11px) rem(15px);
+				border: 1px solid #e0ac14;
+				background-color: #e0ac14;
+				border-radius: 7px;
+				text-transform: uppercase;
+				transition: all 0.3s ease;
+				font-family: $font-family-open;
+				color: #fff;
+				@include md(font-size, rem(15px));  
+				&:hover {
+					color: #fff;
+					background-color: rgb(224, 173, 20);
+					border: 1px solid rgb(224, 173, 20);
+					box-shadow: 0 3px 20px rgba(224, 173, 20, .55);
+				}
+			}
+		}
+		&__count {
+			padding-bottom: rem(16px);
+			&-generate {
+				font-family: $font-family-open;
+				font-style: italic;
+				text-align: center;
+				color: $grey-color;
+			}
+		}
+	}
+}

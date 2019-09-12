@@ -1,0 +1,113 @@
+.header {
+	min-height: rem(70px);
+	background-color: #fff;
+	@include align-center;
+	&-wrap {
+		align-items: center;
+		padding: rem(10px) 0 rem(10px);
+		justify-content: space-between;
+		&-sm {
+			flex-direction: column;
+		}
+	}
+}
+.header-xl {
+	display: block;
+	@include md(display, none);  
+}
+.header-sm {
+	display: none;
+	@include md(display, flex);
+	align-center: center;
+	justify-content: center;
+}
+.support {
+	max-width: 20% !important;
+	@include lg(max-width, 26% !important);
+	margin-left: rem(10px);
+	@include align-center;
+	justify-content: center;
+	@include sm(width, 50%!important);
+	flex-direction: row;
+	&-text {
+		font-family: $font-family-open;
+		font-size: rem(17px);
+		color: $grey-color;
+		@include md(display, none);    
+	}
+	&-email {
+		font-family: $font-family-open;
+		font-size: rem(18px);
+		color: $main-color;
+		font-weight: bold;
+		white-space: nowrap;
+		@include sm(font-size, rem(16px));
+	}
+	&__list {
+		margin-right: 20px !important;
+	}
+	&__item {
+		text-align: right;
+	}
+}
+.support-sm {
+	width: 50%;
+}
+.email-icon {
+	font-size: rem(22px);
+	color: $main-color;
+}
+
+.logo {
+	@include align-center;
+	@include md(justify-content, center);
+	@include sm(padding-bottom, rem(5px));
+	&-pic {
+		width: auto !important;
+		height: rem(48px);
+		padding: 0 rem(15px);
+		border-right: 1px solid #BAB9B6;
+		@include md(border-right, none);  
+		@include sm(height, rem(30px));  
+	}
+	&-link {
+		&:hover {
+			filter: grayscale(100%);
+			transition: all 0.3s ease;
+		}
+	}
+	&-description {
+		font-family: $font-family-open;
+		font-size: rem(17px);
+		line-height: 125%;
+		text-align: left;
+		color: #555;
+		min-width: rem(330px);
+		max-width: rem(330px);
+		margin: 0;
+		@include md(display, none); 
+		@include xl(min-width, 0);    
+	}
+}
+.city {
+	@include sm(width, 35%!important);
+	@include sm(justify-content, flex-start !important);
+	@include md(justify-content, center !important);
+	@include md(display, flex);
+	order: 2;
+}
+
+.select-block {
+	max-width: 0!important;
+	margin-right: rem(50px);
+}
+.city-select {
+	border-radius: 3px;
+    padding: 4px;
+    font-family: 'Open Sans', 'Arial', 'sans-serif' !important;
+    z-index: 1;
+    background-color: #fff !important;
+  	background-color: rgb(255,255,255) !important;
+  	background-color: rgba(255,255,255,0.5) !important;
+    @include lg(max-width, 180px);
+}

@@ -1,0 +1,58 @@
+.privacy {
+	margin: 0 rem(100px);
+	&__title {
+		margin: rem(80px) 0 rem(40px) 0;
+		&-text {
+			padding-bottom: rem(40px);
+			font-family: $font-family-mont;
+			font-size: rem(42px);
+			line-height: 150%;
+			font-weight: 300;
+			text-align: center;
+			color: $grey-color;
+			@include md(font-size, rem(30px));
+		}
+		&-desc, &-desc-second{
+			font-family: $font-family-open;
+			font-size: rem(17px);
+			line-height: 145%;
+			color: $grey-color;
+		}
+		&-desc {
+			padding-bottom: rem(15px);
+		}
+	}
+	&-content {
+		&__section {
+			&-title {
+				font-family: $font-family-mont;
+				font-weight: 300;
+				font-size: rem(30px);
+				line-height: 142%;
+				color: $grey-color;
+				margin: rem(15px) 0;
+				text-align: center;
+				display: block;
+			}
+		}
+		&__list {
+			counter-reset: num;
+		}
+		&__item {
+			display: flex;
+			padding-bottom: rem(15px);
+			&::before {
+				color: #6D6DD3;
+				content: counter(num);
+			    counter-increment: num;
+			    padding-right: rem(10px);
+			}
+				&-text {
+				font-family: $font-family-open;
+				font-size: rem(17px);
+				line-height: 145%;
+				color: $grey-color;
+			}
+		}
+	}
+}

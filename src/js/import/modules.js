@@ -1,2 +1,12 @@
 import "%modules%/header/header";
-import "%modules%/footer/footer"
+import "%modules%/about/about";
+import "%modules%/steps/steps";
+import "%modules%/form/form";
+import "%modules%/advantage/advantage";
+import "%modules%/card/card";
+import "%modules%/price/price";
+import "%modules%/FAQ/FAQ";
+import "%modules%/video/video";
+import "%modules%/reviews/reviews";
+import "%modules%/partners/partners";
+import "%modules%/footer/footer";
