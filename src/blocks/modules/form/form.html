@@ -37,6 +37,97 @@
           <p class="warning-message warning-message-patronymic">
           Если отчество отсутствует, оставьте поле пустым.
       </p>
+          <div class="form-content__field form-content__field-age">
+            <span class="form-content__field-text">Ваш возраст <span class="formImportant">*</span></span></span>
+            <div class="form-content__field-wrap cont_one">
+              <select name="age" id="age" class="form-content__field-input form-content__field-input--age" v-model="age">
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option selected value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+                <option value="60">60</option>
+                <option value="61">61</option>
+                <option value="62">62</option>
+                <option value="63">63</option>
+                <option value="64">64</option>
+                <option value="65">65</option>
+                <option value="66">66</option>
+                <option value="67">67</option>
+                <option value="68">68</option>
+                <option value="69">69</option>
+                <option value="70">70</option>
+                <option value="71">71</option>
+                <option value="72">72</option>
+                <option value="73">73</option>
+                <option value="74">74</option>
+                <option value="75">75</option>
+                <option value="76">76</option>
+                <option value="77">77</option>
+                <option value="78">78</option>
+                <option value="79">79</option>
+                <option value="80">80</option>
+                <option value="81">81</option>
+                <option value="82">82</option>
+                <option value="83">83</option>
+                <option value="84">84</option>
+                <option value="85">85</option>
+                <option value="86">86</option>
+                <option value="87">87</option>
+                <option value="88">88</option>
+                <option value="89">89</option>
+                <option value="90">90</option>
+                <option value="91">91</option>
+                <option value="92">92</option>
+                <option value="93">93</option>
+                <option value="94">94</option>
+                <option value="95">95</option>
+                <option value="96">96</option>
+                <option value="97">97</option>
+                <option value="98">98</option>
+                <option value="99">99</option>
+                </select>
+            </div>
+          </div>
           <div class="form-content__field form-content__field-contact form-content__field-email">
             <span class="form-content__field-text">Эл. почта <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap cont_one">
@@ -52,7 +143,7 @@
               <input name="phone" id="phone" type="text" placeholder="+7 (000) 000-00-00" class="form-content__field-input phone" v-model="phone">
             </div>
           </div>
-          <div class="form-content__field form-content__field-contact form-content__field-city">
+          <!-- <div class="form-content__field form-content__field-contact form-content__field-city">
             <span class="form-content__field-text">Город проведения ТО</span>
             <div class="form-content__field-wrap cont_one">
               <select v-model="city" name="city" id="city" class="form-content__field-input form-content__field-input--city form-content__field-input--five">
@@ -253,7 +344,7 @@
           </div>
           <p class="warning-message warning-message-city">
           Если Вашего города нет в списке, выберите ближайший к Вам населенный пункт.
-      </p>
+      </p> -->
           <div class="form-content__terms cont_one">
             <span class="form-content__field-text"></span>
             <input id="terms" type="checkbox" name="terms" class="form-content__terms--checkbox form-content__field-input--six" checked>
@@ -327,7 +418,7 @@
           <p class="warning-message warning-message-fuel">
           После заключения эксперта на указанный Email-адрес поступит Диагностическая Карта.
       </p>
-          <div class="form-content__field form-content__field-setting form-content__field-break">
+          <!-- <div class="form-content__field form-content__field-setting form-content__field-break">
             <span class="form-content__field-text">Тип тормозной системы</span>
             <div class="form-content__field-wrap">
               <select name="break" id="break" class="form-content__field-input form-content__field-input--twelve" v-model="breaks">
@@ -341,8 +432,8 @@
           </div>
           <p class="warning-message warning-message-break">       
           Если Вам неизвестен тип тормозной системы, оставьте значение «Механическая» по умолчанию.
-      </p>
-          <div class="form-content__field form-content__field-setting form-content__field-tires">
+      </p> -->
+          <!-- <div class="form-content__field form-content__field-setting form-content__field-tires">
             <span class="form-content__field-text">Марка шин</span>
             <div class="form-content__field-wrap">
               <select id="tires" name="tiresType" class="form-content__field-input form-content__field-input--thirteen" v-model="tires">
@@ -899,7 +990,7 @@
           </div>
           <p class="warning-message warning-message-tires">          
           Если Вам неизвестна марка шин, поставьте любое из значений.
-      </p>
+      </p> -->
           <div class="form-content__field form-content__field-mileage form-content__field-mileage">
             <span class="form-content__field-text">Пробег (км) <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
@@ -916,14 +1007,14 @@
               <input id="use-first" type="checkbox" name="use" class="form-content__use--checkbox" checked>
               <label id="label-use-first" for="use-first" class="form-content__use--text" value="Для личного пользования">Для личного пользования</label>
             </li>
-            <li class="use__item">
+            <!-- <li class="use__item">
               <input id="use-second" type="checkbox" name="use" class="form-content__use--checkbox">
               <label id="label-use-second" for="use-second" class="form-content__use--text" value="Для учебной езды">Для учебной езды</label>
             </li>
             <li class="use__item">
               <input id="use-third" type="checkbox" name="use" class="form-content__use--checkbox">
               <label id="label-use-third" for="use-third" class="form-content__use--text" value="Для перевозки опасных грузов">Для перевозки опасных грузов</label>
-            </li>
+            </li> -->
             <li class="use__item">
               <input id="use-fourth" type="checkbox" name="use" class="form-content__use--checkbox">
               <label id="label-use-fourth" for="use-fourth" class="form-content__use--text" value="Используется в такси / для пассажироперевозок">Используется в такси / для пассажироперевозок</label>
@@ -944,7 +1035,7 @@
             <span class="form-content__field-text">Тип документа <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
               <select name="docType" id="docType" class="form-content__field-input form-content__field-input--fiveteen" v-model="docType">
-                <option value="Свидетельство о регистрации ТС">Свидетельство о регистрации ТС</option>
+                <option selected value="Свидетельство о регистрации ТС">Свидетельство о регистрации ТС</option>
                 <option value="ПТС">ПТС</option>
               </select>
             </div>
@@ -952,8 +1043,8 @@
           <div class="form-content__field">
             <span class="form-content__field-text">Серия и<br>номер документа <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap form-content__field-wrap--docNum">
-              <input type="text" id="docNum-first" class="form-content__field-input form-content__field-input--docNum form-content__field-input--sixteen" minlength="4" maxlength="4" placeholder="00AA" name="docNumFirst">
-              <input type="text" id="docNum-second" class="form-content__field-input form-content__field-input--docNumSec form-content__field-input--seventeen" minlength="6" maxlength="6" placeholder="000000" name="docNumSecond">
+              <input type="text" id="docNum-first" class="form-content__field-input form-content__field-input--docNum form-content__field-input--sixteen" minlength="4" maxlength="4" placeholder="00AA" name="docNumFirst" v-model="series">
+              <input type="text" id="docNum-second" class="form-content__field-input form-content__field-input--docNumSec form-content__field-input--seventeen" minlength="6" maxlength="6" placeholder="000000" name="docNumSecond" v-model="number">
             </div>
           </div>
             <p class="warning-message warning-message-docNum">
@@ -962,12 +1053,12 @@
             <p class="warning-message warning-message-docNumSec">       
             Номер указывается без пробелов, 6 цифр слитно.
         </p>
-          <div class="form-content__field form-content__field-issue">
+          <!-- <div class="form-content__field form-content__field-issue">
             <span class="form-content__field-text">Кем выдан <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
               <input type="text" name="police" class="form-content__field-input form-content__field-input--eighteen" placeholder="Например, ГИБДД" v-model="police">              
             </div>
-          </div>
+          </div> -->
           <div class="form-content__field form-content__field-date">
             <span class="form-content__field-text">Дата выдачи <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap form-content__field-wrap--date">
@@ -1109,7 +1200,7 @@
             </div>
           </div>
           <div class="form-content__field form-content__field-vin">
-            <span class="form-content__field-text">VIN-номер</span>
+            <span class="form-content__field-text">VIN-номер <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
               <input id="vin" type="text" name="vin" class="form-content__field-input form-content__field-input--twenty" maxlength="17">
             </div>
@@ -1128,7 +1219,7 @@
           VIN состоит из 17 символов и не может содержать русские буквы. Для японских автомобилей основным идентификатором являются номер кузова или номер шасси (рамы) и необходимо указать, что VIN отсутствует.
       </p>
           <div class="form-content__field form-content__field-carcass">
-            <span class="form-content__field-text">Номер кузова</span>
+            <span class="form-content__field-text">Номер кузова <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
               <input id="carcass" type="text" name="carcass" class="form-content__field-input form-content__field-input--twentyOne" maxlength="17">
             </div>
@@ -1151,7 +1242,7 @@
           Номер кузова не может содержать в себе русские буквы. Для грузовых автомобилей, у которых в документе указано «КАБ» или «КАБИНА», необходимо указать только номер после данной фразы
       </p>
           <div class="form-content__field form-content__field-frame">
-            <span class="form-content__field-text">Номер шасси (рамы)</span>
+            <span class="form-content__field-text">Номер шасси (рамы) <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap">
               <input id="frame" type="text" name="frame" class="form-content__field-input form-content__field-input--twentyTwo" maxlength="17">
             </div>
@@ -1195,7 +1286,7 @@
           Разрешённая масса не может быть меньше Массы без нагрузки.
       </p>
           <div class="form-content__field">
-            <span class="form-content__field-text">Гос. номер и регион</span>
+            <span class="form-content__field-text">Гос. номер и регион <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap--gov">
               <input id="gosNum" id="gosNum" minlength="6" maxlength="6" type="text" class="form-content__field-input form-content__field-input--govNum form-content__field-input--twentyFive" name="gosNum" placeholder="A000AA">
               <input id="region" minlength="2" maxlength="3" type="text" class="form-content__field-input form-content__field-input--region form-content__field-input--twentyFive" name="region" placeholder="999">
@@ -1247,6 +1338,12 @@
                     </div>
                    </li>
                    <li class="check-data__item">
+                     <div class="check-data__item-title">Ваш возраст</div>
+                     <div class="check-data__item-content">
+                      <span id="checkPatronymic" class="check-data__item-content--text">{{ age }}</span>
+                    </div>
+                   </li>
+                   <li class="check-data__item">
                      <div class="check-data__item-title">Эл. почта</div>
                      <div class="check-data__item-content">
                       <span id="checkEmail" class="check-data__item-content--text">{{ email }}</span>
@@ -1258,12 +1355,12 @@
                       <span id="checkPhone" class="check-data__item-content--text">{{ phone }}</span>
                     </div>
                    </li>
-                   <li class="check-data__item">
+                   <!-- <li class="check-data__item">
                      <div class="check-data__item-title">Населенный пункт</div>
                      <div class="check-data__item-content">
                       <span id="checkCity" class="check-data__item-content--text">{{ city }}</span>
                     </div>
-                   </li>
+                   </li> -->
                  </ul>
                  <button type="button" class="edit-button" id="stepDownOne">Редактировать</button>
               </div>
@@ -1302,7 +1399,7 @@
                       <span id="checkFuel" class="check-data__item-content--text">{{ fuel }}</span>
                     </div>
                    </li>
-                   <li class="check-data__item">
+                   <!-- <li class="check-data__item">
                      <div class="check-data__item-title">Тип тормозной системы</div>
                      <div class="check-data__item-content">
                       <span id="checkBreaks" class="check-data__item-content--text">{{ breaks }}</span>
@@ -1313,7 +1410,7 @@
                      <div class="check-data__item-content">
                       <span id="checkTires" class="check-data__item-content--text">{{ tires }}</span>
                     </div>
-                   </li>
+                   </li> -->
                    <li class="check-data__item">
                      <div class="check-data__item-title">Пробег</div>
                      <div class="check-data__item-content">
@@ -1346,16 +1443,16 @@
                    <li class="check-data__item">
                      <div class="check-data__item-title">Серия и<br>номер документа</div>
                      <div class="check-data__item-content">
-                        <p class="check-data__item-content--text"><span id="checkDocNumFirst"></span><span id="checkDocNumSecond"></span></p>
+                        <p class="check-data__item-content--text">{{ series }} <span id="checkDocNumFirst"></span><span id="checkDocNumSecond">{{ number }}</span></p>
                       <span id="checkDocNum" class="check-data__item-content--text"></span>
                     </div>
                    </li>
-                   <li class="check-data__item">
+                   <!-- <li class="check-data__item">
                      <div class="check-data__item-title">Кем выдан</div>
                      <div class="check-data__item-content">
                       <span id="checkPolice" class="check-data__item-content--text">{{ police }}</span>
                     </div>
-                   </li>
+                   </li> -->
                    <li class="check-data__item">
                      <div class="check-data__item-title">Дата выдачи</div>
                      <div class="check-data__item-content">

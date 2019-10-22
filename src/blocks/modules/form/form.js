@@ -25,6 +25,12 @@ $(document).ready(function() {
  		docDay:"required",
  		docMonth:"required",
  		docYear:"required",
+ 		age:"required",
+ 		vin:"required",
+ 		carcass:"required",
+ 		frame:"required",
+ 		gosNum:"required",
+ 		region:"required",
  		email: {
       		required: true,
       		email: true
@@ -105,7 +111,6 @@ $(document).ready(function() {
     	$('#docNum-first').val(result);
     	alert("Серия документа может содержать только РУССКИЕ буквы и цифры (4 символа). Проверьте, что раскладка клавиатуры установлена на русском языке и повторите ввод.");
     }
-    $('#docNum-first').val(result);
     $("#checkDocNumFirst").html(docNumFirst);
   });
 
@@ -117,7 +122,6 @@ $(document).ready(function() {
     	$('#docNum-second').val(result);
     	alert("Номер документа может содержать только 6 цифр. Пожалуйста, не вводите буквы.");
     }
-    $('#docNum-second').val(result);
     $("#checkDocNumSecond").html(docNumSecond);
   });
   $('#vin').on("keyup keydown", function() {
@@ -517,6 +521,7 @@ new Vue ({
 		sername:null,
 		name:null,
 		patronymic:null,
+		age:"25",
 		email:null,
 		phone:null,
 		city:"Ваш город",
@@ -542,6 +547,8 @@ new Vue ({
 		nothing2:null,
 		nothing1:null,
 		asVin2:null,
-		asVin1:null
+		asVin1:null,
+		series:null,
+		number:null
 	},
 });
