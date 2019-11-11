@@ -237,6 +237,14 @@
 
 .submitButton{
 	display: block;
+	position: relative;
+}
+
+.progress-bar {
+    position: absolute;
+    max-width: 2.75rem;
+    z-index: 10;
+    display: none
 }
 
 .commands {
@@ -331,6 +339,7 @@ input, select {
 	}
 	&-content {
 		max-width: rem(526px);
+		padding: 0 10px;
 		margin: 0 auto;
 		&__title {
 			text-align: center;
@@ -349,6 +358,10 @@ input, select {
 			&-warning {
 				font-size: rem(14px);
 				color: #73818c;
+				&--red {
+					color: rgba(255,8,0,.6);
+					text-align: center;
+				}
 			}
 		}
 	}
@@ -485,7 +498,6 @@ label.valid {
 		}
 	}
 }
-
 .formImportant {
 	color: red;
 }
