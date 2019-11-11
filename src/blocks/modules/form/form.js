@@ -506,7 +506,7 @@ $(function() {
         }).fail(function() {
           console.log('fail');
         });
-        //отмена действия по умолчанию для кнопки submit
+        // отмена действия по умолчанию для кнопки submit
         e.preventDefault(); 
       });
     });
