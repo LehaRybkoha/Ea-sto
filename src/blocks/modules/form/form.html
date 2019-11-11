@@ -1499,7 +1499,8 @@
                  <button type="button" class="edit-button--third" id="stepDownThree">Редактировать</button>
               </div>
               <div class="continue-button-block submitButton-block">
-                <button href="#form" type="submit" id="next_four" class="continue-button continue-button--fourth submitButton">Оформить</button> 
+                <img class="progress-bar" src="/img/progress-bar.gif">
+                <button href="#form" type="submit" id="next_four" class="continue-button continue-button--fourth submitButton"><span class="submitText">Оформить</span></button> 
               </div>
             </div>
           </div>
@@ -1511,9 +1512,9 @@
           <div class="request-head"></div>
           <div class="request-content">
             <div class="request-content__title">
-              <p class="request-content__title-text">Заявка принята!</p>
+              <p class="request-content__title-text">{{ sername }} {{ name }}, Ваша заявка order_id принята!</p>
               <p class="request-content__title-desc">Ваши данные переданы в ГИБДД.<br>После оплаты мы подтвердим статус заявки в базе ЕАИСТО.<br>Диагностическая карта будет отправлена на вашу почту в течение пяти минут.</p>
-              <p class="request-content__title-warning">Заявка хранится в ГИБДД в течение 48 часов.<br>Пожалуйста, не оформляйте техосмотр в других СТО в течение двух дней во избежание дублирования данных.</p>
+              <p class="request-content__title-warning">Заявка хранится в ГИБДД в течение 48 часов.<br><span class="request-content__title-warning--red">Пожалуйста, не оформляйте заявки на прохождение техосмотра в других СТО в течение двух дней во избежание блокировки Ваших данных в системе ЕАИСТО.</span></p>
             </div>
             <div class="request-payment">
               <div class="request-payment_block">
@@ -1521,7 +1522,7 @@
                 <button class="request-payment_block-button">Оплатить</button>
               </div>
               <div class="request-payment_info">
-                <p class="request-payment_info-text">Оплата производится через сервис Яндекс.Деньги по защищенному протоколу SSL. Мы не храним платежную информацию.</p>
+                <p class="request-payment_info-text">Заявка с указанными данными и ссылкой на оплату продублирована на Вашу электронную почту {{ email }}. Если Вы не получили письмо, проверьте папку "Спам".<br>Оплата производится через сервис Яндекс.Деньги по защищенному протоколу SSL. Мы не храним платежную информацию.</p>
               </div>
             </div>
           </div>

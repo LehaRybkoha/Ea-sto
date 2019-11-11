@@ -4,7 +4,7 @@
 	margin: 0 auto;
 	&-section {
 		background-color: #f0f0f0;
-		padding: rem(110px) 0;
+		padding: rem(65px) 0;
 	}
 	&-head {
 		background-color: #459ac2;
@@ -235,10 +235,16 @@
 	display: none;
 }
 
-.submitButton{
+.submitButton {
 	display: block;
+	position: relative;
 }
-
+.progress-bar {
+	position: absolute;
+	max-width: rem(44px);
+	z-index: 10;
+	display: none;
+}
 .commands {
 	display: flex;
 	justify-content: center;
@@ -330,6 +336,7 @@ input, select {
     	margin-bottom: rem(25px);
 	}
 	&-content {
+		padding: 0 10px;
 		max-width: rem(526px);
 		margin: 0 auto;
 		&__title {
@@ -349,6 +356,9 @@ input, select {
 			&-warning {
 				font-size: rem(14px);
 				color: #73818c;
+				&--red {
+					color: rgba(255, 8, 0, 0.60);
+				}
 			}
 		}
 	}
@@ -356,7 +366,6 @@ input, select {
 		margin-top: rem(52px);
 		&_info {
 			padding: rem(24px) 0;
-			@include sm(max-width, rem(240px));
 			@include sm(margin, 0 auto);
 			&-text {
 				font-size: rem(12px);

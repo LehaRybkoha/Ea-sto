@@ -106,33 +106,33 @@ $(document).ready(function() {
   $('#docNum-first').keyup(function() {
     let docNumFirst = $(this).val();
     let re = /[A-Za-z]/;
-    if (this.value.match(re)) {
-    	let result = this.value.replace(/[A-Za-z]/g, "");
-    	$('#docNum-first').val(result);
-    	alert("Серия документа может содержать только РУССКИЕ буквы и цифры (4 символа). Проверьте, что раскладка клавиатуры установлена на русском языке и повторите ввод.");
-    }
+    // if (this.value.match(re)) {
+    // 	let result = this.value.replace(/[A-Za-z]/g, "");
+    // 	$('#docNum-first').val(result);
+    // 	alert("Серия документа может содержать только РУССКИЕ буквы и цифры (4 символа). Проверьте, что раскладка клавиатуры установлена на русском языке и повторите ввод.");
+    // }
     $("#checkDocNumFirst").html(docNumFirst);
   });
 
   $('#docNum-second').keyup(function() {
     let docNumSecond = $(this).val();
     let re = /[A-Za-zА-Яа-яЁё]/;
-    if (this.value.match(re)) {
-    	let result = this.value.replace(/[A-Za-zА-Яа-яЁё]/g, "");
-    	$('#docNum-second').val(result);
-    	alert("Номер документа может содержать только 6 цифр. Пожалуйста, не вводите буквы.");
-    }
+    // if (this.value.match(re)) {
+    // 	let result = this.value.replace(/[A-Za-zА-Яа-яЁё]/g, "");
+    // 	$('#docNum-second').val(result);
+    // 	alert("Номер документа может содержать только 6 цифр. Пожалуйста, не вводите буквы.");
+    // }
     $("#checkDocNumSecond").html(docNumSecond);
   });
   $('#vin').on("keyup keydown", function() {
   	let vin = $(this).val();
   	let re = /[,.-/QqIiOoА-Яа-яЁё]/;
   	let result;
-    if (this.value.match(re)) {
-    	result = this.value.replace(/[,.-/QqIiOoА-Яа-яЁё]/g, "");
-    	$('#vin').val(result);
-    	alert("VIN-номер может содержать только АНГЛИЙСКИЕ буквы, цифры и знаки. Проверьте, что раскладка клавиатуры установлена на английском языке. Также в VIN-номере невозможно использование английских букв O, Q, I. Вместо них, пожалуйста, используйте цифры 0, 1 и повторите ввод.");
-    }
+    // if (this.value.match(re)) {
+    // 	result = this.value.replace(/[,.-/QqIiOoА-Яа-яЁё]/g, "");
+    // 	$('#vin').val(result);
+    // 	alert("VIN-номер может содержать только АНГЛИЙСКИЕ буквы, цифры и знаки. Проверьте, что раскладка клавиатуры установлена на английском языке. Также в VIN-номере невозможно использование английских букв O, Q, I. Вместо них, пожалуйста, используйте цифры 0, 1 и повторите ввод.");
+    // }
     $("#checkVin").html(vin);
  });
 
@@ -140,11 +140,11 @@ $(document).ready(function() {
     let carcass = $(this).val();
     let re = /[^0-9A-Za-z-/ ,]/;
     let result;
-    if (this.value.match(re)) {
-    	result = this.value.replace(/[^0-9A-Za-z-/ ,]/g, "");
-    	$('#carcass').val(result);
-    	alert("Номер кузова может содержать только АНГЛИЙСКИЕ буквы, цифры и знаки. Проверьте, что раскладка клавиатуры установлена на английском языке и повторите ввод.");
-    }
+    // if (this.value.match(re)) {
+    // 	result = this.value.replace(/[^0-9A-Za-z-/ ,]/g, "");
+    // 	$('#carcass').val(result);
+    // 	alert("Номер кузова может содержать только АНГЛИЙСКИЕ буквы, цифры и знаки. Проверьте, что раскладка клавиатуры установлена на английском языке и повторите ввод.");
+    // }
     $("#checkCarcass").html(carcass);
  });
 
@@ -152,11 +152,11 @@ $(document).ready(function() {
     let frame = $(this).val();
     let re = /[^0-9A-Za-z-/ ,]/;
     let resultж
-    if (this.value.match(re)) {
-    	result = this.value.replace(/[^0-9A-Za-z-/ ,]/g, "");
-    	$('#frame').val(result);
-    	alert("Номер шасси может содержать только АНГЛИЙСКИЕ буквы, цифры и знаки. Проверьте, что раскладка клавиатуры установлена на английском языке и повторите ввод.Номер кузова может содержать только АНГЛИЙСКИЕ буквы, цифры и знаки. Проверьте, что раскладка клавиатуры установлена на английском языке и повторите ввод.");
-    }
+    // if (this.value.match(re)) {
+    // 	result = this.value.replace(/[^0-9A-Za-z-/ ,]/g, "");
+    // 	$('#frame').val(result);
+    // 	alert("Номер шасси может содержать только АНГЛИЙСКИЕ буквы, цифры и знаки. Проверьте, что раскладка клавиатуры установлена на английском языке и повторите ввод.Номер кузова может содержать только АНГЛИЙСКИЕ буквы, цифры и знаки. Проверьте, что раскладка клавиатуры установлена на английском языке и повторите ввод.");
+    // }
     $("#checkFrame").html(frame);
  });
 
@@ -164,11 +164,11 @@ $(document).ready(function() {
     let gosNum = $(this).val();
     let re = /[A-Za-z]/;
     let result;
-    if (this.value.match(re)) {
-    	result = this.value.replace(/[A-Za-z]]/g, "");
-    	$('#gosNum').val(result);
-    	alert("Государственный регистрационный номер может содержать только РУССКИЕ буквы и цифры. Проверьте, что раскладка клавиатуры установлена на русском языке и повторите ввод.");
-    }
+    // if (this.value.match(re)) {
+    // 	result = this.value.replace(/[A-Za-z]]/g, "");
+    // 	$('#gosNum').val(result);
+    // 	alert("Государственный регистрационный номер может содержать только РУССКИЕ буквы и цифры. Проверьте, что раскладка клавиатуры установлена на русском языке и повторите ввод.");
+    // }
     $("#checkGosNum").val(gosNum);
  });
 
@@ -467,6 +467,13 @@ $(function() {
 
       $('#form').submit(function(e) {
         var $form = $(this);
+        $(this).attr('disabled', true);
+			$( ".submitText" ).css('display', 'none');
+			$( ".submitButton" ).css('height', '44px');
+			$( ".submitButton" ).css('width', '170px');
+			$( ".progress-bar" ).css('display', 'block');
+			$( ".continue-button" ).css('background-color', '#5d7bff');
+			$( ".continue-button" ).css('border-color', '#5d7bff');
         $.ajax({
           type: $form.attr('method'),
           url: $form.attr('action'),
