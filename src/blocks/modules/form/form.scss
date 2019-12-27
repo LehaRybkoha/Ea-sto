@@ -28,7 +28,7 @@
 		}
 	}
 	&-content {
-		padding: 0 rem(24px) rem(48px);
+		padding: 0 rem(24px) 0;
 		&__first-step, &__second-step, &__third-step, &__fourth-step {
 			&--text {
 				display: block;
@@ -50,6 +50,7 @@
 			@include align-center;
 			@include sm(align-items, flex-start);
 			@include sm(flex-direction, column);
+			position: relative;
 			justify-content: space-between;
 			margin-bottom: rem(10px);
 			&-select {
@@ -233,6 +234,9 @@
 
 .continue-button-block, .prev, .steps {
 	display: none;
+}
+.continue-button-block {
+	margin: 30px 0;
 }
 
 .submitButton{
@@ -429,20 +433,6 @@ input, select {
     background-size: 123px 98px;
     background-repeat: no-repeat;
 }
-.error:before {
-    content: '';
-    position: absolute;
-    left: 100%;
-    margin-left: 10px;
-    top: 50%;
-    -webkit-transform: translate(0,-50%);
-    transform: translate(0,-50%);
-    width: 23px;
-    height: 23px;
-    background-image: url(https://i.imgur.com/gUl94pe.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
 
 
 .warn-enter-active, .warn-leave-active {
@@ -457,17 +447,57 @@ input.error {
  	border: 1px solid rgba(255, 0, 0, 0.44) !important;
 }
 label.error {
-	display: none !important;
+	position: absolute;
+    right: 0;
+    top: 50%;
+		&::before {
+		    content: '';
+		    position: absolute;
+		    margin-left: 6px;
+		    -webkit-transform: translate(0,-50%);
+		    transform: translate(0,-50%);
+		    width: 23px;
+		    height: 23px;
+		    background-image: url(https://i.imgur.com/gUl94pe.png);
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+	}
 }
 
 input.valid {
  	border: 1px solid green !important;
+	 	&::before {
+		    content: '';
+		    position: absolute;
+		    margin-left: 6px;
+		    -webkit-transform: translate(0,-50%);
+		    transform: translate(0,-50%);
+		    width: 23px;
+		    height: 23px;
+		    background-image: url(https://i.imgur.com/gUl94pe.png);
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+	}
 }
 label.valid {
  color: #ff0000;
  font-weight: normal;
+	 	&::before {
+		    content: '';
+		    position: absolute;
+		    margin-left: 6px;
+		    -webkit-transform: translate(0,-50%);
+		    transform: translate(0,-50%);
+		    width: 23px;
+		    height: 23px;
+		    background-image: url(https://i.imgur.com/gUl94pe.png);
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+	}
 }
-
+.valid-label {
+	display: none;
+}
 .display-yes {
 	display: block !important;
 }

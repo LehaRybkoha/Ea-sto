@@ -1,9 +1,30 @@
 import 'jquery-validation';
 import 'jquery-mask-plugin';
 import Vue from 'vue';
+$.fn.hasAttr = function(name) {
+   return this.attr(name) !== undefined;
+};
 
 
 $(document).ready(function() {
+	jQuery.extend(jQuery.validator.messages, {
+	    required: "",
+	    email: "",
+		remote: "",
+		url: "",
+		date: "",
+		dateISO: "",
+		number: "",
+		digits: "",
+		equalTo: "",
+		maxlength: $.validator.format( "" ),
+		minlength: $.validator.format( "" ),
+		rangelength: $.validator.format( "" ),
+		range: $.validator.format( "" ),
+		max: $.validator.format( "" ),
+		min: $.validator.format( "" ),
+		step: $.validator.format( "" )
+	});
   let $signupForm = $( '#form' );
   let form = $("#form");
   // let empty = $("#emptyWeight");
@@ -12,6 +33,7 @@ $(document).ready(function() {
   phone.mask("+7(999)-999-99-99");
 
 	$signupForm.validate({
+	debug: true,
   	rules: {
  		sername:"required",
  		name:"required",
@@ -54,6 +76,17 @@ $(document).ready(function() {
       return stepIsValid;
     }
   });
+  // function checkInput(){
+  //     form.find('.form-content__field-input').each(function(){
+  //       if($(this).val() != ''){
+  //         // Если поле не пустое удаляем класс-указание
+		// $('.valid-label').css('display', 'block');
+  //       } else {
+  //         // Если поле пустое добавляем класс-указание
+		// $('.valid-label').css('display', 'none');
+  //       }
+  //     });
+  //   }
  // permanent.keyup(function() {
  // 	clearTimeout(weightTimeOut);
  // 	weightTimeOut = setTimeout(weightFunc, 2000, $(this).val())
@@ -200,33 +233,35 @@ $( "#use-first" ).on( "click", function() {
 	if($(this).is(":checked")) {
 		var val = $('#label-use-first').attr('value');
   		$('#checkUse1').html(val);
+  		$('#checkUse4').text("");
   	}
     else {
    		$('#checkUse1').text("");
    	}
 	});
-$( "#use-second" ).on( "click", function() {
-	if($(this).is(":checked")) {
-		var val = $('#label-use-second').attr('value');
-  		$('#checkUse2').html(val);
-  	}
-    else {
-   		$('#checkUse2').text("");
-   	}
-	});
-$( "#use-third" ).on( "click", function() {
-	if($(this).is(":checked")) {
-		var val = $('#label-use-third').attr('value');
-  		$('#checkUse3').html(val);
-  	}
-    else {
-   		$('#checkUse3').text("");
-   	}
-	});
+// $( "#use-second" ).on( "click", function() {
+// 	if($(this).is(":checked")) {
+// 		var val = $('#label-use-second').attr('value');
+//   		$('#checkUse2').html(val);
+//   	}
+//     else {
+//    		$('#checkUse2').text("");
+//    	}
+// 	});
+// $( "#use-third" ).on( "click", function() {
+// 	if($(this).is(":checked")) {
+// 		var val = $('#label-use-third').attr('value');
+//   		$('#checkUse3').html(val);
+//   	}
+//     else {
+//    		$('#checkUse3').text("");
+//    	}
+// 	});
 $( "#use-fourth" ).on( "click", function() {
 	if($(this).is(":checked")) {
 		var val = $('#label-use-fourth').attr('value');
   		$('#checkUse4').html(val);
+  		$('#checkUse1').text("");
   	}
     else {
    		$('#checkUse4').text("");
@@ -296,6 +331,13 @@ $( "#empty-fourth" ).on( "change", function() {
     	$("#region").attr("maxlength", "3");
    	}
 	});
+// $( ".form-content__field-input" ).on( "change", function() {
+// 	if($('.form-content__field-input').hasClass('form')) {
+//         alert('work');
+//     } else {
+        
+//     }
+// 	});
 
 $('.form-content__use--checkbox').change(function() {
   $('.form-content__use--checkbox').not(this).prop('checked', false);
@@ -436,7 +478,7 @@ $(".form-content__field-input--one").focus(function() {
 });
 
 $(function() {
-		let checkName = $("#checkName").val();
+	let checkName = $("#checkName").val();
 	let checkSername = $("#checkSername").val();
 	let checkPatronymic = $("#checkPatronymic").val();
 	let checkEmail = $("#checkEmail").val();
@@ -509,7 +551,6 @@ $(function() {
         }).done(function() {
           console.log('success');
           $('.request').css('display', 'block');
-          $('.form-section').css('height', '90vh');
           $('.form-content, .form-head, .about, .steps-section, .advantage, .card-section, .price, .question, .video, .reviews, .partners, .footer').css('display', 'none');
  		  $('body').scrollTop(5000);
  		  	const el = document.getElementById('form');

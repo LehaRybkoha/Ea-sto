@@ -13,7 +13,8 @@
           <div class="form-content__field form-content__field-fullName form-content__field-name">
             <span class="form-content__field-text">Фамилия <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap sername cont_one">
-              <input v-model="sername" type="text" name="sername" class="form-content__field-input form-content__field-input--one">
+              <input id="sername" v-model="sername" type="text" name="sername" class="form-content__field-input form-content__field-input--one">
+              <label for="sername" class="valid-label"></label>
             </div>
           </div>
           <p class="warning-message warning-message-sername">
@@ -1513,8 +1514,8 @@
           <div class="request-content">
             <div class="request-content__title">
               <p class="request-content__title-text">{{ sername }} {{ name }}, Ваша заявка order_id принята!</p>
-              <p class="request-content__title-desc">Ваши данные переданы в ГИБДД.<br>После оплаты мы подтвердим статус заявки в базе ЕАИСТО.<br>Диагностическая карта будет отправлена на вашу почту в течение пяти минут.</p>
-              <p class="request-content__title-warning">Заявка хранится в ГИБДД в течение 48 часов.<br><span class="request-content__title-warning--red">Пожалуйста, не оформляйте заявки на прохождение техосмотра в других СТО в течение двух дней во избежание блокировки Ваших данных в системе ЕАИСТО.</span></p>
+              <p class="request-content__title-desc">Ваши данные переданы в ГИБДД.<br>После оплаты мы подтвердим статус заявки в базе ЕАИСТО и отправим ДК на {{ email }}</p>
+              <p class="request-content__title-warning"><span class="request-content__title-warning--red">Пожалуйста, не оформляйте заявки на прохождение техосмотра в других СТО в течение двух дней во избежание блокировки Ваших данных в системе ЕАИСТО.</span></p>
             </div>
             <div class="request-payment">
               <div class="request-payment_block">
