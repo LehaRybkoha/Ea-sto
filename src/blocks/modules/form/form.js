@@ -1,3 +1,4 @@
+import 'jquery.scrollto';
 import 'jquery-validation';
 import 'jquery-mask-plugin';
 import Vue from 'vue';
@@ -33,7 +34,6 @@ $(document).ready(function() {
   phone.mask("+7(999)-999-99-99");
 
 	$signupForm.validate({
-	debug: true,
   	rules: {
  		sername:"required",
  		name:"required",
@@ -76,6 +76,7 @@ $(document).ready(function() {
       return stepIsValid;
     }
   });
+  
   // function checkInput(){
   //     form.find('.form-content__field-input').each(function(){
   //       if($(this).val() != ''){
@@ -218,7 +219,13 @@ $(document).ready(function() {
    let val = $('.phone').val();
    $('#checkPhone').html(val);
  });
-
+$( ".continue-button" ).on( "click", function() {
+	if ($( ".form-content__field-input" ).hasClass("error")) {
+		$("input.error").focus();
+	} else {
+		$.scrollTo(".form", 500);
+	}
+});
 $( "#stepDownOne" ).on( "click", function() {
 	$signupForm.formToWizard('GotoStep', '1');
 });

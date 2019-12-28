@@ -50,7 +50,6 @@
 			@include align-center;
 			@include sm(align-items, flex-start);
 			@include sm(flex-direction, column);
-			position: relative;
 			justify-content: space-between;
 			margin-bottom: rem(10px);
 			&-select {
@@ -68,9 +67,11 @@
 			}
 			&-wrap {
 				@include sm(width, 100%);
+				position: relative;
 				width: 55%;
 				flex-direction: column;
 				display: flex;
+				max-width: 277px;
 				&--date {
 					display: flex;
 					flex-direction: row;
@@ -79,6 +80,7 @@
 					width: 55%;
 					display: flex;
 					flex-direction: row;
+					position: relative;
 				}
 			}
 			&-input {
@@ -530,4 +532,7 @@ label.valid {
 }
 .formImportant {
 	color: red;
+}
+#gosNum-error {
+	display: none!important;
 }
