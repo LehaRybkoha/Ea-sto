@@ -14,7 +14,6 @@
             <span class="form-content__field-text">Фамилия <span class="formImportant">*</span></span>
             <div class="form-content__field-wrap sername cont_one">
               <input id="sername" v-model="sername" type="text" name="sername" class="form-content__field-input form-content__field-input--one">
-              <label for="sername" class="valid-label"></label>
             </div>
           </div>
           <p class="warning-message warning-message-sername">
@@ -1520,7 +1519,7 @@
             <div class="request-payment">
               <div class="request-payment_block">
                 <p class="request-payment_block-text">Стоимость <span class="request-payment_block-text--css">650 руб.</span></p>
-                <button class="request-payment_block-button">Оплатить</button>
+                <button type="button" class="request-payment_block-button">Оплатить</button>
               </div>
               <div class="request-payment_info">
                 <p class="request-payment_info-text">Заявка с указанными данными и ссылкой на оплату продублирована на Вашу электронную почту {{ email }}.Если Вы не получили письмо, проверьте папку "Спам".<br>Оплата производится через сервис Яндекс.Деньги по защищенному протоколу SSL. Мы не храним платежную информацию.</p>
